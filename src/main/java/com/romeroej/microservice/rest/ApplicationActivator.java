@@ -5,7 +5,10 @@ import javax.ws.rs.core.Application;
 
 
 /**
- * @author RomeroEJ ejromero@gmail.com
+ * Creation Point for application
+ * @author RomeroEJ
+ * @version 1.0
+ * @since 2019-02-28
  */
 @ApplicationPath("/")
 public class ApplicationActivator extends Application {

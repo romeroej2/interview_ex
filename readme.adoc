@@ -45,7 +45,10 @@ for complete documentation https://github.com/swagger-api/swagger-core/wiki/Anno
 
 You can run it many ways:
 
-* mvn package && java -jar ./target/microservice-thorntail.jar
+[source]
+----
+mvn package && java -jar ./target/microservice-thorntail.jar
+----
 * From your IDE, run class `org.wildfly.swarm.runner.Runner`
 
 

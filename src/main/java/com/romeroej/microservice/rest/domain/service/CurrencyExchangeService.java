@@ -4,6 +4,7 @@ package com.romeroej.microservice.rest.domain.service;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.romeroej.microservice.rest.data.model.CurrencyExchange;
+import org.apache.commons.io.IOUtils;
 import org.jboss.logging.Logger;
 
 import javax.ejb.Stateless;
@@ -14,10 +15,17 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.Duration;
 import java.time.Instant;
+import java.util.stream.Stream;
 
 
 /**
- * @author Efrain Romero  ejromero2@gmail.com
+ * Service Solution that contains Application Logic to resolve the RATES date
+ * and allow the information to be kept in sync. The class should cache the information
+ * in the Database for 10min if the data is older it will remove it and refresh it.
+ *
+ * @author RomeroEJ
+ * @version 1.0
+ * @since 2019-02-28
  */
 @Stateless
 public class CurrencyExchangeService {
@@ -30,50 +38,76 @@ public class CurrencyExchangeService {
     private EntityManager entityManager;
 
 
-    public CurrencyExchange find() {
+    public CurrencyExchange getCEXRates(String currency) throws Exception {
 
-        //System.out.println("SERVICE INVOKED");
+        //String [] validCurrencies = {"USD","AUD","CAD","PLN","MXN","COP"};
+
+        if (Stream.of("USD", "AUD", "CAD", "PLN", "MXN", "COP", "EUR").filter(c -> c.equals(currency)).count() == 0) {
+            throw new Exception("Invalid Currency");
+        }
 
         CurrencyExchange currencyExchange = null;
 
         try {
-            currencyExchange = entityManager.find(CurrencyExchange.class, "EUR");
+            //Fetch Information from DB.
+            currencyExchange = entityManager.find(CurrencyExchange.class, currency);
         } catch (Exception ex) {
+            LOG.infof("Database doesnt contain a RATE for %s", currency);
             ex.printStackTrace();
         }
 
 
         if (currencyExchange != null) {
 
-            //System.out.println("DB OBJ: " + currencyExchange);
+            LOG.infof("CEX RATE found on DB: %s", currencyExchange);
 
+
+            //Fetch Timestamps from DB & Current Time and Evaluate if data should be refreshed.
             Instant now = Instant.now();
-
-            //System.out.println("InstantNow: "+ now.toString());
-
             Instant cexTimeStamp = Instant.ofEpochMilli(currencyExchange.getTimestampRest());
-
-            //System.out.println("InstantRest: "+ cexTimeStamp.toString());
-
 
             long timeElapsed = Duration.between(cexTimeStamp, now).toMinutes();
 
-            System.out.println("Elapsed time: " + timeElapsed);
+            LOG.infof("Elapsed time for CEX data: %s minutes", timeElapsed);
+
             if (timeElapsed > 10) {
-                entityManager.remove(currencyExchange);
-                currencyExchange = queryRestEndpoint4CEX();
-                entityManager.persist(currencyExchange);
+
+                //Refresh CEX data as its STALE.
+
+                try {
+                    entityManager.remove(currencyExchange);
+                } catch (Exception ex) {
+                    LOG.errorf("Problem Removing DB Data. Ex: %s", ex.getMessage());
+                    //Should be able to continue even if this fails, as next time data will be refreshed.
+                }
+
+                currencyExchange = queryRestEndpoint4CEX(currency);
+
+                try {
+                    entityManager.persist(currencyExchange);
+
+                } catch (Exception ex) {
+                    LOG.errorf("Problem Persisting DB Data. Ex: %s", ex.getMessage());
+                    //Should be able to continue even if this fails, as next time data will be refreshed.
+                }
 
             }
 
 
         } else {
-            currencyExchange = queryRestEndpoint4CEX();
+
+            //Refresh CEX data as its not on cache.
+
+            currencyExchange = queryRestEndpoint4CEX(currency);
 
             if (currencyExchange != null) {
-                //System.out.println("new DB OBJ: " + currencyExchange);
                 currencyExchange.setTimestampRest(Instant.now().toEpochMilli());
-                entityManager.persist(currencyExchange);
+                try {
+                    entityManager.persist(currencyExchange);
+                } catch (Exception ex) {
+                    LOG.errorf("Problem Persisting DB Data. Ex: %s", ex.getMessage());
+                    //Should be able to continue even if this fails, as next time data will be refreshed.
+                }
             }
         }
 
@@ -84,12 +118,13 @@ public class CurrencyExchangeService {
     }
 
 
-    private CurrencyExchange queryRestEndpoint4CEX() {
+    private CurrencyExchange queryRestEndpoint4CEX(String currency) throws Exception {
 
 
-        String urlStr = "http://data.fixer.io/api/latest?access_key=98389804f272658862bec77fd0af4f17&symbols=USD,AUD,CAD,PLN,MXN&format=1";
+        String urlStr = "http://data.fixer.io/api/latest?access_key=98389804f272658862bec77fd0af4f17&symbols=USD,AUD,CAD,PLN,MXN,COP&format=1";
 
-        LOG.infof("Getting CEX data from Endpoint {}", urlStr);
+
+        LOG.infof("Getting CEX data from Endpoint %s", urlStr);
 
 
         try {
@@ -99,24 +134,58 @@ public class CurrencyExchangeService {
             GsonBuilder builder = new GsonBuilder();
             Gson gson = builder.create();
 
-            return gson.fromJson(url.toString(), CurrencyExchange.class);
+
+            //Read REST info and Parse it to POJO to Persist.
+            CurrencyExchange response = gson.fromJson(IOUtils.toString(url, "UTF-8"), CurrencyExchange.class);
+
+            //Since Free Api only Works for EUR if the currency is different we need to convert it :(
+            response.getRates().setEUR(1.0);
+
+
+            return response;
 
 
         } catch (MalformedURLException e) {
 
-            LOG.errorf("Malformed Endpoint {}", urlStr);
-
-            e.printStackTrace();
+            LOG.errorf("Malformed Endpoint %s", urlStr);
+            throw new Exception("Problem Fetching new CEX Data");
 
         } catch (IOException e) {
 
-            LOG.errorf("Error consuming Endpoint {}, exception: {}", urlStr, e.getMessage());
+            LOG.errorf("Error consuming Endpoint %s, exception: %s", urlStr, e.getMessage());
+            throw new Exception("Problem Fetching new CEX Data");
 
+        } catch (Exception e) {
             e.printStackTrace();
+            LOG.errorf("Exception: %s", urlStr, e.getMessage());
+            throw new Exception("Problem Fetching new CEX Data");
+        }
+
+
+    }
+
+
+    public Double getConvertedAmmount(String fromCurrency, String toCurrency, Double ammount) throws Exception {
+
+        CurrencyExchange cex = getCEXRates(fromCurrency);
+
+        if (fromCurrency.equals(cex.getBase())) {
+            //if BASE just convert using rate
+            ammount = ammount * cex.getRates().getRate(toCurrency);
+
+        } else {
+            //Convert to Base
+
+            ammount = ammount / cex.getRates().getRate(fromCurrency);
+
+            //Convert to Source
+            ammount = ammount * cex.getRates().getRate(toCurrency);
+
 
         }
 
-        return null;
-
+        return ammount;
     }
+
+
 }
