@@ -83,7 +83,7 @@ public class CurrencyExchangeController {
         CurrencyExchange results = null;
         try {
             //results = currencyExchangeService.getCEXRates(currency);
-            return Response.ok(String.format("{\"convertedAmmount\" : \"%s %s\"}", currencyExchangeService.getConvertedAmmount(fromCurrency, toCurrency, ammount), toCurrency)
+            return Response.ok(String.format("{\"convertedAmmount\" : \"%s %s\"}", currencyExchangeService.getConvertedAmmount(fromCurrency.toUpperCase(), toCurrency.toUpperCase(), ammount), toCurrency)
                     , MediaType.APPLICATION_JSON).build();
 
         } catch (Exception e) {

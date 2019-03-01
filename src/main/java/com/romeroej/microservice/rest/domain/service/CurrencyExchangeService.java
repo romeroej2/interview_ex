@@ -40,11 +40,10 @@ public class CurrencyExchangeService {
 
     public CurrencyExchange getCEXRates(String currency) throws Exception {
 
-        //String [] validCurrencies = {"USD","AUD","CAD","PLN","MXN","COP"};
 
-        if (Stream.of("USD", "AUD", "CAD", "PLN", "MXN", "COP", "EUR").filter(c -> c.equals(currency)).count() == 0) {
-            throw new Exception("Invalid Currency");
-        }
+        validateCurrency(currency);
+
+        currency = "EUR"; // Service only support EUR.
 
         CurrencyExchange currencyExchange = null;
 
@@ -167,6 +166,9 @@ public class CurrencyExchangeService {
 
     public Double getConvertedAmmount(String fromCurrency, String toCurrency, Double ammount) throws Exception {
 
+        validateCurrency(toCurrency);
+        validateCurrency(fromCurrency);
+
         CurrencyExchange cex = getCEXRates(fromCurrency);
 
         if (fromCurrency.equals(cex.getBase())) {
@@ -187,5 +189,11 @@ public class CurrencyExchangeService {
         return ammount;
     }
 
+    private void validateCurrency(String currency) throws Exception {
+        if (Stream.of("USD", "AUD", "CAD", "PLN", "MXN", "COP", "EUR").filter(c -> c.equals(currency)).count() == 0) {
+            throw new Exception("Invalid Currency");
+        }
+
+    }
 
 }
