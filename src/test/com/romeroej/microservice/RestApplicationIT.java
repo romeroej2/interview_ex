@@ -29,8 +29,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 
-import javax.inject.Inject;
-
 import static org.fest.assertions.Assertions.assertThat;
 
 
@@ -39,8 +37,7 @@ public class RestApplicationIT {
 
     @Drone
     WebDriver browser;
-    @Inject
-    CurrencyExchangeService currencyExchangeService;
+
 
     @Deployment
     public static Archive createDeployment() {
@@ -74,6 +71,7 @@ public class RestApplicationIT {
                 .addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml");
 
     }
+
 
     @RunAsClient
     @Test
