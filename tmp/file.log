@@ -1,0 +1,501 @@
+CUSTOM LOG FORMAT INFO [org.infinispan.factories.GlobalComponentRegistry] ISPN000128: Infinispan version: Infinispan 'Infinity Minus ONE +2' 9.4.3.Final
+CUSTOM LOG FORMAT INFO [org.jboss.as.clustering.infinispan] WFLYCLINF0002: Started default cache from server container
+CUSTOM LOG FORMAT INFO [org.jboss.as.clustering.infinispan] WFLYCLINF0002: Started passivation cache from ejb container
+CUSTOM LOG FORMAT INFO [org.jboss.as.clustering.infinispan] WFLYCLINF0002: Started passivation cache from web container
+CUSTOM LOG FORMAT INFO [org.jboss.as.server] WFLYSRV0212: Resuming server
+CUSTOM LOG FORMAT INFO [org.jboss.as] WFLYSRV0025: Thorntail 2.3.0.Final (WildFly Core 7.0.0.Final) started in 3426ms - Started 315 of 475 services (298 services are lazy, passive or on-demand)
+CUSTOM LOG FORMAT INFO [org.wildfly.swarm.runtime.deployer] deploying swagger-ui.war
+CUSTOM LOG FORMAT INFO [org.jboss.as.server.deployment] WFLYSRV0027: Starting deployment of "swagger-ui.war" (runtime-name: "swagger-ui.war")
+CUSTOM LOG FORMAT WARN [org.jboss.as.dependency.private] WFLYSRV0018: Deployment "deployment.swagger-ui.war" is using a private module ("org.jboss.jts") which may be changed or removed in future versions without notice.
+CUSTOM LOG FORMAT WARN [org.jboss.as.dependency.private] WFLYSRV0018: Deployment "deployment.swagger-ui.war" is using a private module ("org.jboss.ironjacamar.jdbcadapters") which may be changed or removed in future versions without notice.
+CUSTOM LOG FORMAT WARN [org.jboss.as.dependency.private] WFLYSRV0018: Deployment "deployment.swagger-ui.war" is using a private module ("org.infinispan") which may be changed or removed in future versions without notice.
+CUSTOM LOG FORMAT WARN [org.jboss.as.dependency.private] WFLYSRV0018: Deployment "deployment.swagger-ui.war" is using a private module ("org.infinispan.commons") which may be changed or removed in future versions without notice.
+CUSTOM LOG FORMAT INFO [org.jboss.weld.deployer] WFLYWELD0003: Processing weld deployment swagger-ui.war
+CUSTOM LOG FORMAT INFO [org.hibernate.validator.internal.util.Version] HV000001: Hibernate Validator 6.0.14.Final
+CUSTOM LOG FORMAT INFO [org.jboss.weld.Version] WELD-000900: 3.0.5 (Final)
+CUSTOM LOG FORMAT INFO [org.wildfly.extension.undertow] WFLYUT0018: Host default-host starting
+CUSTOM LOG FORMAT INFO [org.wildfly.extension.undertow] WFLYUT0021: Registered web context: '/http://localhost:8080/swagger.json' for server 'default-server'
+CUSTOM LOG FORMAT INFO [org.jboss.as.server] WFLYSRV0010: Deployed "swagger-ui.war" (runtime-name : "swagger-ui.war")
+CUSTOM LOG FORMAT INFO [org.wildfly.swarm.swagger] TTSWGR0004: Configure Swagger for deployment users.war with package com.romeroej.microservice.rest.application.api
+CUSTOM LOG FORMAT INFO [org.wildfly.swarm.runtime.deployer] deploying users.war
+CUSTOM LOG FORMAT INFO [org.jboss.as.server.deployment] WFLYSRV0027: Starting deployment of "users.war" (runtime-name: "users.war")
+CUSTOM LOG FORMAT INFO [org.jboss.as.jpa] WFLYJPA0002: Read persistence.xml for MyPU
+CUSTOM LOG FORMAT WARN [org.jboss.as.dependency.private] WFLYSRV0018: Deployment "deployment.users.war" is using a private module ("org.jboss.jts") which may be changed or removed in future versions without notice.
+CUSTOM LOG FORMAT WARN [org.jboss.as.dependency.private] WFLYSRV0018: Deployment "deployment.users.war" is using a private module ("org.jboss.ironjacamar.jdbcadapters") which may be changed or removed in future versions without notice.
+CUSTOM LOG FORMAT WARN [org.jboss.as.dependency.private] WFLYSRV0018: Deployment "deployment.users.war" is using a private module ("org.infinispan") which may be changed or removed in future versions without notice.
+CUSTOM LOG FORMAT WARN [org.jboss.as.dependency.private] WFLYSRV0018: Deployment "deployment.users.war" is using a private module ("org.infinispan.commons") which may be changed or removed in future versions without notice.
+CUSTOM LOG FORMAT INFO [org.jboss.as.jpa] WFLYJPA0010: Starting Persistence Unit (phase 1 of 2) Service 'users.war#MyPU'
+CUSTOM LOG FORMAT INFO [org.jboss.weld.deployer] WFLYWELD0003: Processing weld deployment users.war
+CUSTOM LOG FORMAT INFO [org.hibernate.jpa.internal.util.LogHelper] HHH000204: Processing PersistenceUnitInfo [
+	name: MyPU
+	...]
+CUSTOM LOG FORMAT INFO [org.jboss.as.ejb3.deployment] WFLYEJB0473: JNDI bindings for session bean named 'CurrencyExchangeService' in deployment unit 'deployment "users.war"' are as follows:
+
+	java:global/users/CurrencyExchangeService!com.romeroej.microservice.rest.domain.service.CurrencyExchangeService
+	java:app/users/CurrencyExchangeService!com.romeroej.microservice.rest.domain.service.CurrencyExchangeService
+	java:module/CurrencyExchangeService!com.romeroej.microservice.rest.domain.service.CurrencyExchangeService
+	ejb:users/CurrencyExchangeService!com.romeroej.microservice.rest.domain.service.CurrencyExchangeService
+	java:global/users/CurrencyExchangeService
+	java:app/users/CurrencyExchangeService
+	java:module/CurrencyExchangeService
+
+CUSTOM LOG FORMAT INFO [org.hibernate.Version] HHH000412: Hibernate Core {5.3.7.Final}
+CUSTOM LOG FORMAT INFO [org.hibernate.cfg.Environment] HHH000206: hibernate.properties not found
+CUSTOM LOG FORMAT INFO [org.hibernate.annotations.common.Version] HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+CUSTOM LOG FORMAT INFO [org.jboss.as.connector.deployers.jdbc] WFLYJCA0004: Deploying JDBC-compliant driver class org.h2.Driver (version 1.4)
+CUSTOM LOG FORMAT INFO [org.jboss.as.connector.deployers.jdbc] WFLYJCA0018: Started Driver service with driver-name = users.war_org.h2.Driver_1_4
+CUSTOM LOG FORMAT INFO [org.jboss.as.jpa] WFLYJPA0010: Starting Persistence Unit (phase 2 of 2) Service 'users.war#MyPU'
+CUSTOM LOG FORMAT INFO [org.hibernate.dialect.Dialect] HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+CUSTOM LOG FORMAT INFO [org.hibernate.envers.boot.internal.EnversServiceImpl] Envers integration enabled? : true
+CUSTOM LOG FORMAT INFO [org.hibernate.tool.schema.internal.SchemaCreatorImpl] HHH000476: Executing import script 'ScriptSourceInputFromUrl(vfs:/content/users.war/WEB-INF/classes/META-INF/load.sql)'
+CUSTOM LOG FORMAT INFO [org.hibernate.tool.schema.internal.SchemaCreatorImpl] HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@17213f77'
+CUSTOM LOG FORMAT INFO [org.jboss.resteasy.resteasy_jaxrs.i18n] RESTEASY002225: Deploying javax.ws.rs.core.Application: class com.romeroej.microservice.rest.ApplicationActivator$Proxy$_$$_WeldClientProxy
+CUSTOM LOG FORMAT WARN [org.jboss.as.weld] WFLYWELD0052: Using deployment classloader to load proxy classes for module io.swagger. Package-private access will not work. To fix this the module should declare dependencies on [org.jboss.weld.core, org.jboss.weld.spi]
+CUSTOM LOG FORMAT INFO [org.wildfly.extension.undertow] WFLYUT0021: Registered web context: '/' for server 'default-server'
+CUSTOM LOG FORMAT INFO [org.jboss.as.server] WFLYSRV0010: Deployed "users.war" (runtime-name : "users.war")
+CUSTOM LOG FORMAT INFO [org.wildfly.swarm] THORN99999: Thorntail is Ready
+CUSTOM LOG FORMAT INFO [org.wildfly.swarm] THORN0027: Shutdown requested
+CUSTOM LOG FORMAT INFO [org.jboss.as.server] WFLYSRV0236: Suspending server with no timeout.
+CUSTOM LOG FORMAT INFO [org.jboss.as.ejb3] WFLYEJB0493: EJB subsystem suspension complete
+CUSTOM LOG FORMAT INFO [org.jboss.as.server] WFLYSRV0220: Server shutdown has been requested via an OS signal
+CUSTOM LOG FORMAT INFO [org.jboss.as.connector.deployers.jdbc] WFLYJCA0019: Stopped Driver service with driver-name = users.war_org.h2.Driver_1_4
+CUSTOM LOG FORMAT INFO [org.wildfly.extension.undertow] WFLYUT0008: Undertow HTTP listener default suspending
+CUSTOM LOG FORMAT INFO [org.wildfly.extension.undertow] WFLYUT0022: Unregistered web context: '/http://localhost:8080/swagger.json' from server 'default-server'
+CUSTOM LOG FORMAT INFO [org.wildfly.extension.undertow] WFLYUT0022: Unregistered web context: '/' from server 'default-server'
+CUSTOM LOG FORMAT INFO [org.wildfly.extension.undertow] WFLYUT0007: Undertow HTTP listener default stopped, was bound to [0:0:0:0:0:0:0:0]:8080
+CUSTOM LOG FORMAT INFO [org.infinispan.eviction.impl.PassivationManagerImpl] ISPN000029: Passivating all entries to disk
+CUSTOM LOG FORMAT INFO [org.jboss.as.clustering.infinispan] WFLYCLINF0003: Stopped default cache from server container
+CUSTOM LOG FORMAT INFO [org.infinispan.eviction.impl.PassivationManagerImpl] ISPN000029: Passivating all entries to disk
+CUSTOM LOG FORMAT INFO [org.wildfly.extension.undertow] WFLYUT0019: Host default-host stopping
+CUSTOM LOG FORMAT INFO [org.infinispan.eviction.impl.PassivationManagerImpl] ISPN000030: Passivated 0 entries in 9 milliseconds
+CUSTOM LOG FORMAT INFO [org.infinispan.eviction.impl.PassivationManagerImpl] ISPN000030: Passivated 0 entries in 3 milliseconds
+CUSTOM LOG FORMAT INFO [org.wildfly.extension.undertow] WFLYUT0004: Undertow 2.0.15.Final stopping
+CUSTOM LOG FORMAT INFO [org.jboss.as.clustering.infinispan] WFLYCLINF0003: Stopped passivation cache from web container
+CUSTOM LOG FORMAT INFO [org.jboss.as.clustering.infinispan] WFLYCLINF0003: Stopped passivation cache from ejb container
+CUSTOM LOG FORMAT INFO [org.jboss.as.jpa] WFLYJPA0011: Stopping Persistence Unit (phase 2 of 2) Service 'users.war#MyPU'
+CUSTOM LOG FORMAT INFO [org.hibernate.orm.beans] HHH10005004: Stopping BeanContainer : org.hibernate.resource.beans.container.internal.CdiBeanContainerExtendedAccessImpl@32463465
+CUSTOM LOG FORMAT INFO [org.jboss.as.jpa] WFLYJPA0011: Stopping Persistence Unit (phase 1 of 2) Service 'users.war#MyPU'
+CUSTOM LOG FORMAT INFO [org.jboss.as.connector.subsystems.datasources] WFLYJCA0010: Unbound data source [java:jboss/datasources/ExampleDS]
+CUSTOM LOG FORMAT INFO [org.jboss.as.connector.deployers.jdbc] WFLYJCA0019: Stopped Driver service with driver-name = h2
+CUSTOM LOG FORMAT INFO [org.jboss.as.server.deployment] WFLYSRV0028: Stopped deployment swagger-ui.war (runtime-name: swagger-ui.war) in 100ms
+CUSTOM LOG FORMAT INFO [org.jboss.as.server.deployment] WFLYSRV0028: Stopped deployment users.war (runtime-name: users.war) in 116ms
+CUSTOM LOG FORMAT INFO [org.jboss.as] WFLYSRV0050: Thorntail 2.3.0.Final (WildFly Core 7.0.0.Final) stopped in 123ms
+CUSTOM LOG FORMAT INFO [org.jboss.as.connector.subsystems.datasources] WFLYJCA0001: Bound data source [java:jboss/datasources/ExampleDS]
+CUSTOM LOG FORMAT INFO [org.infinispan.factories.GlobalComponentRegistry] ISPN000128: Infinispan version: Infinispan 'Infinity Minus ONE +2' 9.4.3.Final
+CUSTOM LOG FORMAT INFO [org.jboss.as.clustering.infinispan] WFLYCLINF0002: Started default cache from server container
+CUSTOM LOG FORMAT INFO [org.jboss.as.clustering.infinispan] WFLYCLINF0002: Started passivation cache from ejb container
+CUSTOM LOG FORMAT INFO [org.jboss.as.clustering.infinispan] WFLYCLINF0002: Started passivation cache from web container
+CUSTOM LOG FORMAT INFO [org.jboss.as.server] WFLYSRV0212: Resuming server
+CUSTOM LOG FORMAT INFO [org.jboss.as] WFLYSRV0025: Thorntail 2.3.0.Final (WildFly Core 7.0.0.Final) started in 3485ms - Started 315 of 475 services (298 services are lazy, passive or on-demand)
+CUSTOM LOG FORMAT INFO [org.wildfly.swarm.runtime.deployer] deploying swagger-ui.war
+CUSTOM LOG FORMAT INFO [org.jboss.as.server.deployment] WFLYSRV0027: Starting deployment of "swagger-ui.war" (runtime-name: "swagger-ui.war")
+CUSTOM LOG FORMAT WARN [org.jboss.as.dependency.private] WFLYSRV0018: Deployment "deployment.swagger-ui.war" is using a private module ("org.infinispan") which may be changed or removed in future versions without notice.
+CUSTOM LOG FORMAT WARN [org.jboss.as.dependency.private] WFLYSRV0018: Deployment "deployment.swagger-ui.war" is using a private module ("org.infinispan.commons") which may be changed or removed in future versions without notice.
+CUSTOM LOG FORMAT WARN [org.jboss.as.dependency.private] WFLYSRV0018: Deployment "deployment.swagger-ui.war" is using a private module ("org.jboss.jts") which may be changed or removed in future versions without notice.
+CUSTOM LOG FORMAT WARN [org.jboss.as.dependency.private] WFLYSRV0018: Deployment "deployment.swagger-ui.war" is using a private module ("org.jboss.ironjacamar.jdbcadapters") which may be changed or removed in future versions without notice.
+CUSTOM LOG FORMAT INFO [org.jboss.weld.deployer] WFLYWELD0003: Processing weld deployment swagger-ui.war
+CUSTOM LOG FORMAT INFO [org.hibernate.validator.internal.util.Version] HV000001: Hibernate Validator 6.0.14.Final
+CUSTOM LOG FORMAT INFO [org.jboss.weld.Version] WELD-000900: 3.0.5 (Final)
+CUSTOM LOG FORMAT INFO [org.wildfly.extension.undertow] WFLYUT0018: Host default-host starting
+CUSTOM LOG FORMAT INFO [org.wildfly.extension.undertow] WFLYUT0021: Registered web context: '/swagger-ui' for server 'default-server'
+CUSTOM LOG FORMAT INFO [org.jboss.as.server] WFLYSRV0010: Deployed "swagger-ui.war" (runtime-name : "swagger-ui.war")
+CUSTOM LOG FORMAT INFO [org.wildfly.swarm.swagger] TTSWGR0004: Configure Swagger for deployment users.war with package com.romeroej.microservice.rest.application.api
+CUSTOM LOG FORMAT INFO [org.wildfly.swarm.runtime.deployer] deploying users.war
+CUSTOM LOG FORMAT INFO [org.jboss.as.server.deployment] WFLYSRV0027: Starting deployment of "users.war" (runtime-name: "users.war")
+CUSTOM LOG FORMAT INFO [org.jboss.as.jpa] WFLYJPA0002: Read persistence.xml for MyPU
+CUSTOM LOG FORMAT WARN [org.jboss.as.dependency.private] WFLYSRV0018: Deployment "deployment.users.war" is using a private module ("org.infinispan") which may be changed or removed in future versions without notice.
+CUSTOM LOG FORMAT WARN [org.jboss.as.dependency.private] WFLYSRV0018: Deployment "deployment.users.war" is using a private module ("org.infinispan.commons") which may be changed or removed in future versions without notice.
+CUSTOM LOG FORMAT WARN [org.jboss.as.dependency.private] WFLYSRV0018: Deployment "deployment.users.war" is using a private module ("org.jboss.jts") which may be changed or removed in future versions without notice.
+CUSTOM LOG FORMAT WARN [org.jboss.as.dependency.private] WFLYSRV0018: Deployment "deployment.users.war" is using a private module ("org.jboss.ironjacamar.jdbcadapters") which may be changed or removed in future versions without notice.
+CUSTOM LOG FORMAT INFO [org.jboss.as.jpa] WFLYJPA0010: Starting Persistence Unit (phase 1 of 2) Service 'users.war#MyPU'
+CUSTOM LOG FORMAT INFO [org.jboss.weld.deployer] WFLYWELD0003: Processing weld deployment users.war
+CUSTOM LOG FORMAT INFO [org.hibernate.jpa.internal.util.LogHelper] HHH000204: Processing PersistenceUnitInfo [
+	name: MyPU
+	...]
+CUSTOM LOG FORMAT INFO [org.jboss.as.ejb3.deployment] WFLYEJB0473: JNDI bindings for session bean named 'CurrencyExchangeService' in deployment unit 'deployment "users.war"' are as follows:
+
+	java:global/users/CurrencyExchangeService!com.romeroej.microservice.rest.domain.service.CurrencyExchangeService
+	java:app/users/CurrencyExchangeService!com.romeroej.microservice.rest.domain.service.CurrencyExchangeService
+	java:module/CurrencyExchangeService!com.romeroej.microservice.rest.domain.service.CurrencyExchangeService
+	ejb:users/CurrencyExchangeService!com.romeroej.microservice.rest.domain.service.CurrencyExchangeService
+	java:global/users/CurrencyExchangeService
+	java:app/users/CurrencyExchangeService
+	java:module/CurrencyExchangeService
+
+CUSTOM LOG FORMAT INFO [org.hibernate.Version] HHH000412: Hibernate Core {5.3.7.Final}
+CUSTOM LOG FORMAT INFO [org.hibernate.cfg.Environment] HHH000206: hibernate.properties not found
+CUSTOM LOG FORMAT INFO [org.hibernate.annotations.common.Version] HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+CUSTOM LOG FORMAT INFO [org.jboss.as.connector.deployers.jdbc] WFLYJCA0004: Deploying JDBC-compliant driver class org.h2.Driver (version 1.4)
+CUSTOM LOG FORMAT INFO [org.jboss.as.connector.deployers.jdbc] WFLYJCA0018: Started Driver service with driver-name = users.war_org.h2.Driver_1_4
+CUSTOM LOG FORMAT INFO [org.jboss.as.jpa] WFLYJPA0010: Starting Persistence Unit (phase 2 of 2) Service 'users.war#MyPU'
+CUSTOM LOG FORMAT INFO [org.hibernate.dialect.Dialect] HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+CUSTOM LOG FORMAT INFO [org.hibernate.envers.boot.internal.EnversServiceImpl] Envers integration enabled? : true
+CUSTOM LOG FORMAT INFO [org.hibernate.tool.schema.internal.SchemaCreatorImpl] HHH000476: Executing import script 'ScriptSourceInputFromUrl(vfs:/content/users.war/WEB-INF/classes/META-INF/load.sql)'
+CUSTOM LOG FORMAT INFO [org.hibernate.tool.schema.internal.SchemaCreatorImpl] HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@5db1bd29'
+CUSTOM LOG FORMAT INFO [org.jboss.resteasy.resteasy_jaxrs.i18n] RESTEASY002225: Deploying javax.ws.rs.core.Application: class com.romeroej.microservice.rest.ApplicationActivator$Proxy$_$$_WeldClientProxy
+CUSTOM LOG FORMAT WARN [org.jboss.as.weld] WFLYWELD0052: Using deployment classloader to load proxy classes for module io.swagger. Package-private access will not work. To fix this the module should declare dependencies on [org.jboss.weld.core, org.jboss.weld.spi]
+CUSTOM LOG FORMAT INFO [org.wildfly.extension.undertow] WFLYUT0021: Registered web context: '/' for server 'default-server'
+CUSTOM LOG FORMAT INFO [org.jboss.as.server] WFLYSRV0010: Deployed "users.war" (runtime-name : "users.war")
+CUSTOM LOG FORMAT INFO [org.wildfly.swarm] THORN99999: Thorntail is Ready
+CUSTOM LOG FORMAT INFO [org.wildfly.swarm] THORN0027: Shutdown requested
+CUSTOM LOG FORMAT INFO [org.jboss.as.server] WFLYSRV0236: Suspending server with no timeout.
+CUSTOM LOG FORMAT INFO [org.jboss.as.ejb3] WFLYEJB0493: EJB subsystem suspension complete
+CUSTOM LOG FORMAT INFO [org.jboss.as.server] WFLYSRV0220: Server shutdown has been requested via an OS signal
+CUSTOM LOG FORMAT INFO [org.jboss.as.connector.deployers.jdbc] WFLYJCA0019: Stopped Driver service with driver-name = users.war_org.h2.Driver_1_4
+CUSTOM LOG FORMAT INFO [org.wildfly.extension.undertow] WFLYUT0022: Unregistered web context: '/' from server 'default-server'
+CUSTOM LOG FORMAT INFO [org.wildfly.extension.undertow] WFLYUT0008: Undertow HTTP listener default suspending
+CUSTOM LOG FORMAT INFO [org.wildfly.extension.undertow] WFLYUT0022: Unregistered web context: '/swagger-ui' from server 'default-server'
+CUSTOM LOG FORMAT INFO [org.infinispan.eviction.impl.PassivationManagerImpl] ISPN000029: Passivating all entries to disk
+CUSTOM LOG FORMAT INFO [org.infinispan.eviction.impl.PassivationManagerImpl] ISPN000029: Passivating all entries to disk
+CUSTOM LOG FORMAT INFO [org.wildfly.extension.undertow] WFLYUT0007: Undertow HTTP listener default stopped, was bound to [0:0:0:0:0:0:0:0]:8080
+CUSTOM LOG FORMAT INFO [org.jboss.as.clustering.infinispan] WFLYCLINF0003: Stopped default cache from server container
+CUSTOM LOG FORMAT INFO [org.wildfly.extension.undertow] WFLYUT0019: Host default-host stopping
+CUSTOM LOG FORMAT INFO [org.infinispan.eviction.impl.PassivationManagerImpl] ISPN000030: Passivated 0 entries in 14 milliseconds
+CUSTOM LOG FORMAT INFO [org.infinispan.eviction.impl.PassivationManagerImpl] ISPN000030: Passivated 0 entries in 13 milliseconds
+CUSTOM LOG FORMAT INFO [org.wildfly.extension.undertow] WFLYUT0004: Undertow 2.0.15.Final stopping
+CUSTOM LOG FORMAT INFO [org.jboss.as.clustering.infinispan] WFLYCLINF0003: Stopped passivation cache from ejb container
+CUSTOM LOG FORMAT INFO [org.jboss.as.clustering.infinispan] WFLYCLINF0003: Stopped passivation cache from web container
+CUSTOM LOG FORMAT INFO [org.jboss.as.jpa] WFLYJPA0011: Stopping Persistence Unit (phase 2 of 2) Service 'users.war#MyPU'
+CUSTOM LOG FORMAT INFO [org.hibernate.orm.beans] HHH10005004: Stopping BeanContainer : org.hibernate.resource.beans.container.internal.CdiBeanContainerExtendedAccessImpl@2405c492
+CUSTOM LOG FORMAT INFO [org.jboss.as.jpa] WFLYJPA0011: Stopping Persistence Unit (phase 1 of 2) Service 'users.war#MyPU'
+CUSTOM LOG FORMAT INFO [org.jboss.as.connector.subsystems.datasources] WFLYJCA0010: Unbound data source [java:jboss/datasources/ExampleDS]
+CUSTOM LOG FORMAT INFO [org.jboss.as.connector.deployers.jdbc] WFLYJCA0019: Stopped Driver service with driver-name = h2
+CUSTOM LOG FORMAT INFO [org.jboss.as.server.deployment] WFLYSRV0028: Stopped deployment swagger-ui.war (runtime-name: swagger-ui.war) in 70ms
+CUSTOM LOG FORMAT INFO [org.jboss.as.server.deployment] WFLYSRV0028: Stopped deployment users.war (runtime-name: users.war) in 89ms
+CUSTOM LOG FORMAT INFO [org.jboss.as] WFLYSRV0050: Thorntail 2.3.0.Final (WildFly Core 7.0.0.Final) stopped in 95ms
+CUSTOM LOG FORMAT INFO [org.jboss.as.connector.subsystems.datasources] WFLYJCA0001: Bound data source [java:jboss/datasources/ExampleDS]
+CUSTOM LOG FORMAT INFO [org.infinispan.factories.GlobalComponentRegistry] ISPN000128: Infinispan version: Infinispan 'Infinity Minus ONE +2' 9.4.3.Final
+CUSTOM LOG FORMAT INFO [org.jboss.as.clustering.infinispan] WFLYCLINF0002: Started default cache from server container
+CUSTOM LOG FORMAT INFO [org.jboss.as.clustering.infinispan] WFLYCLINF0002: Started passivation cache from ejb container
+CUSTOM LOG FORMAT INFO [org.jboss.as.clustering.infinispan] WFLYCLINF0002: Started passivation cache from web container
+CUSTOM LOG FORMAT INFO [org.jboss.as.server] WFLYSRV0212: Resuming server
+CUSTOM LOG FORMAT INFO [org.jboss.as] WFLYSRV0025: Thorntail 2.3.0.Final (WildFly Core 7.0.0.Final) started in 3460ms - Started 315 of 475 services (298 services are lazy, passive or on-demand)
+CUSTOM LOG FORMAT INFO [org.wildfly.swarm.runtime.deployer] deploying swagger-ui.war
+CUSTOM LOG FORMAT INFO [org.jboss.as.server.deployment] WFLYSRV0027: Starting deployment of "swagger-ui.war" (runtime-name: "swagger-ui.war")
+CUSTOM LOG FORMAT WARN [org.jboss.as.dependency.private] WFLYSRV0018: Deployment "deployment.swagger-ui.war" is using a private module ("org.jboss.ironjacamar.jdbcadapters") which may be changed or removed in future versions without notice.
+CUSTOM LOG FORMAT WARN [org.jboss.as.dependency.private] WFLYSRV0018: Deployment "deployment.swagger-ui.war" is using a private module ("org.jboss.jts") which may be changed or removed in future versions without notice.
+CUSTOM LOG FORMAT WARN [org.jboss.as.dependency.private] WFLYSRV0018: Deployment "deployment.swagger-ui.war" is using a private module ("org.infinispan") which may be changed or removed in future versions without notice.
+CUSTOM LOG FORMAT WARN [org.jboss.as.dependency.private] WFLYSRV0018: Deployment "deployment.swagger-ui.war" is using a private module ("org.infinispan.commons") which may be changed or removed in future versions without notice.
+CUSTOM LOG FORMAT INFO [org.jboss.weld.deployer] WFLYWELD0003: Processing weld deployment swagger-ui.war
+CUSTOM LOG FORMAT INFO [org.hibernate.validator.internal.util.Version] HV000001: Hibernate Validator 6.0.14.Final
+CUSTOM LOG FORMAT INFO [org.jboss.weld.Version] WELD-000900: 3.0.5 (Final)
+CUSTOM LOG FORMAT INFO [org.wildfly.extension.undertow] WFLYUT0018: Host default-host starting
+CUSTOM LOG FORMAT INFO [org.wildfly.extension.undertow] WFLYUT0021: Registered web context: '/http://localhost:8080/swagger.json' for server 'default-server'
+CUSTOM LOG FORMAT INFO [org.jboss.as.server] WFLYSRV0010: Deployed "swagger-ui.war" (runtime-name : "swagger-ui.war")
+CUSTOM LOG FORMAT INFO [org.wildfly.swarm.swagger] TTSWGR0004: Configure Swagger for deployment demo.war with package com.romeroej.microservice.rest.application.api
+CUSTOM LOG FORMAT INFO [org.wildfly.swarm.runtime.deployer] deploying demo.war
+CUSTOM LOG FORMAT INFO [org.jboss.as.server.deployment] WFLYSRV0027: Starting deployment of "demo.war" (runtime-name: "demo.war")
+CUSTOM LOG FORMAT INFO [org.jboss.as.jpa] WFLYJPA0002: Read persistence.xml for MyPU
+CUSTOM LOG FORMAT WARN [org.jboss.as.dependency.private] WFLYSRV0018: Deployment "deployment.demo.war" is using a private module ("org.jboss.ironjacamar.jdbcadapters") which may be changed or removed in future versions without notice.
+CUSTOM LOG FORMAT WARN [org.jboss.as.dependency.private] WFLYSRV0018: Deployment "deployment.demo.war" is using a private module ("org.jboss.jts") which may be changed or removed in future versions without notice.
+CUSTOM LOG FORMAT WARN [org.jboss.as.dependency.private] WFLYSRV0018: Deployment "deployment.demo.war" is using a private module ("org.infinispan") which may be changed or removed in future versions without notice.
+CUSTOM LOG FORMAT WARN [org.jboss.as.dependency.private] WFLYSRV0018: Deployment "deployment.demo.war" is using a private module ("org.infinispan.commons") which may be changed or removed in future versions without notice.
+CUSTOM LOG FORMAT INFO [org.jboss.as.jpa] WFLYJPA0010: Starting Persistence Unit (phase 1 of 2) Service 'demo.war#MyPU'
+CUSTOM LOG FORMAT INFO [org.jboss.weld.deployer] WFLYWELD0003: Processing weld deployment demo.war
+CUSTOM LOG FORMAT INFO [org.hibernate.jpa.internal.util.LogHelper] HHH000204: Processing PersistenceUnitInfo [
+	name: MyPU
+	...]
+CUSTOM LOG FORMAT INFO [org.jboss.as.ejb3.deployment] WFLYEJB0473: JNDI bindings for session bean named 'CurrencyExchangeService' in deployment unit 'deployment "demo.war"' are as follows:
+
+	java:global/demo/CurrencyExchangeService!com.romeroej.microservice.rest.domain.service.CurrencyExchangeService
+	java:app/demo/CurrencyExchangeService!com.romeroej.microservice.rest.domain.service.CurrencyExchangeService
+	java:module/CurrencyExchangeService!com.romeroej.microservice.rest.domain.service.CurrencyExchangeService
+	ejb:demo/CurrencyExchangeService!com.romeroej.microservice.rest.domain.service.CurrencyExchangeService
+	java:global/demo/CurrencyExchangeService
+	java:app/demo/CurrencyExchangeService
+	java:module/CurrencyExchangeService
+
+CUSTOM LOG FORMAT INFO [org.hibernate.Version] HHH000412: Hibernate Core {5.3.7.Final}
+CUSTOM LOG FORMAT INFO [org.hibernate.cfg.Environment] HHH000206: hibernate.properties not found
+CUSTOM LOG FORMAT INFO [org.hibernate.annotations.common.Version] HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+CUSTOM LOG FORMAT INFO [org.jboss.as.connector.deployers.jdbc] WFLYJCA0004: Deploying JDBC-compliant driver class org.h2.Driver (version 1.4)
+CUSTOM LOG FORMAT INFO [org.jboss.as.connector.deployers.jdbc] WFLYJCA0018: Started Driver service with driver-name = demo.war_org.h2.Driver_1_4
+CUSTOM LOG FORMAT INFO [org.jboss.as.jpa] WFLYJPA0010: Starting Persistence Unit (phase 2 of 2) Service 'demo.war#MyPU'
+CUSTOM LOG FORMAT INFO [org.hibernate.dialect.Dialect] HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+CUSTOM LOG FORMAT INFO [org.hibernate.envers.boot.internal.EnversServiceImpl] Envers integration enabled? : true
+CUSTOM LOG FORMAT INFO [org.hibernate.tool.schema.internal.SchemaCreatorImpl] HHH000476: Executing import script 'ScriptSourceInputFromUrl(vfs:/content/demo.war/WEB-INF/classes/META-INF/load.sql)'
+CUSTOM LOG FORMAT INFO [org.hibernate.tool.schema.internal.SchemaCreatorImpl] HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@6ac1eb6d'
+CUSTOM LOG FORMAT INFO [org.jboss.resteasy.resteasy_jaxrs.i18n] RESTEASY002225: Deploying javax.ws.rs.core.Application: class com.romeroej.microservice.rest.ApplicationActivator$Proxy$_$$_WeldClientProxy
+CUSTOM LOG FORMAT WARN [org.jboss.as.weld] WFLYWELD0052: Using deployment classloader to load proxy classes for module io.swagger. Package-private access will not work. To fix this the module should declare dependencies on [org.jboss.weld.core, org.jboss.weld.spi]
+CUSTOM LOG FORMAT INFO [org.wildfly.extension.undertow] WFLYUT0021: Registered web context: '/' for server 'default-server'
+CUSTOM LOG FORMAT INFO [org.jboss.as.server] WFLYSRV0010: Deployed "demo.war" (runtime-name : "demo.war")
+CUSTOM LOG FORMAT INFO [org.wildfly.swarm] THORN99999: Thorntail is Ready
+CUSTOM LOG FORMAT INFO [org.wildfly.swarm] THORN0027: Shutdown requested
+CUSTOM LOG FORMAT INFO [org.jboss.as.server] WFLYSRV0236: Suspending server with no timeout.
+CUSTOM LOG FORMAT INFO [org.jboss.as.ejb3] WFLYEJB0493: EJB subsystem suspension complete
+CUSTOM LOG FORMAT INFO [org.jboss.as.server] WFLYSRV0220: Server shutdown has been requested via an OS signal
+CUSTOM LOG FORMAT INFO [org.jboss.as.connector.deployers.jdbc] WFLYJCA0019: Stopped Driver service with driver-name = demo.war_org.h2.Driver_1_4
+CUSTOM LOG FORMAT INFO [org.wildfly.extension.undertow] WFLYUT0022: Unregistered web context: '/' from server 'default-server'
+CUSTOM LOG FORMAT INFO [org.wildfly.extension.undertow] WFLYUT0022: Unregistered web context: '/http://localhost:8080/swagger.json' from server 'default-server'
+CUSTOM LOG FORMAT INFO [org.wildfly.extension.undertow] WFLYUT0008: Undertow HTTP listener default suspending
+CUSTOM LOG FORMAT INFO [org.wildfly.extension.undertow] WFLYUT0007: Undertow HTTP listener default stopped, was bound to [0:0:0:0:0:0:0:0]:8080
+CUSTOM LOG FORMAT INFO [org.wildfly.extension.undertow] WFLYUT0019: Host default-host stopping
+CUSTOM LOG FORMAT INFO [org.infinispan.eviction.impl.PassivationManagerImpl] ISPN000029: Passivating all entries to disk
+CUSTOM LOG FORMAT INFO [org.wildfly.extension.undertow] WFLYUT0004: Undertow 2.0.15.Final stopping
+CUSTOM LOG FORMAT INFO [org.infinispan.eviction.impl.PassivationManagerImpl] ISPN000029: Passivating all entries to disk
+CUSTOM LOG FORMAT INFO [org.jboss.as.clustering.infinispan] WFLYCLINF0003: Stopped default cache from server container
+CUSTOM LOG FORMAT INFO [org.infinispan.eviction.impl.PassivationManagerImpl] ISPN000030: Passivated 0 entries in 5 milliseconds
+CUSTOM LOG FORMAT INFO [org.infinispan.eviction.impl.PassivationManagerImpl] ISPN000030: Passivated 0 entries in 6 milliseconds
+CUSTOM LOG FORMAT INFO [org.jboss.as.clustering.infinispan] WFLYCLINF0003: Stopped passivation cache from ejb container
+CUSTOM LOG FORMAT INFO [org.jboss.as.clustering.infinispan] WFLYCLINF0003: Stopped passivation cache from web container
+CUSTOM LOG FORMAT INFO [org.jboss.as.jpa] WFLYJPA0011: Stopping Persistence Unit (phase 2 of 2) Service 'demo.war#MyPU'
+CUSTOM LOG FORMAT INFO [org.hibernate.orm.beans] HHH10005004: Stopping BeanContainer : org.hibernate.resource.beans.container.internal.CdiBeanContainerExtendedAccessImpl@d6f3d86
+CUSTOM LOG FORMAT INFO [org.jboss.as.jpa] WFLYJPA0011: Stopping Persistence Unit (phase 1 of 2) Service 'demo.war#MyPU'
+CUSTOM LOG FORMAT INFO [org.jboss.as.connector.subsystems.datasources] WFLYJCA0010: Unbound data source [java:jboss/datasources/ExampleDS]
+CUSTOM LOG FORMAT INFO [org.jboss.as.connector.deployers.jdbc] WFLYJCA0019: Stopped Driver service with driver-name = h2
+CUSTOM LOG FORMAT INFO [org.jboss.as.server.deployment] WFLYSRV0028: Stopped deployment swagger-ui.war (runtime-name: swagger-ui.war) in 80ms
+CUSTOM LOG FORMAT INFO [org.jboss.as.server.deployment] WFLYSRV0028: Stopped deployment demo.war (runtime-name: demo.war) in 94ms
+CUSTOM LOG FORMAT INFO [org.jboss.as] WFLYSRV0050: Thorntail 2.3.0.Final (WildFly Core 7.0.0.Final) stopped in 101ms
+CUSTOM LOG FORMAT INFO [org.jboss.as.connector.subsystems.datasources] WFLYJCA0001: Bound data source [java:jboss/datasources/ExampleDS]
+CUSTOM LOG FORMAT INFO [org.infinispan.factories.GlobalComponentRegistry] ISPN000128: Infinispan version: Infinispan 'Infinity Minus ONE +2' 9.4.3.Final
+CUSTOM LOG FORMAT INFO [org.jboss.as.clustering.infinispan] WFLYCLINF0002: Started passivation cache from web container
+CUSTOM LOG FORMAT INFO [org.jboss.as.clustering.infinispan] WFLYCLINF0002: Started default cache from server container
+CUSTOM LOG FORMAT INFO [org.jboss.as.clustering.infinispan] WFLYCLINF0002: Started passivation cache from ejb container
+CUSTOM LOG FORMAT INFO [org.jboss.as.server] WFLYSRV0212: Resuming server
+CUSTOM LOG FORMAT INFO [org.jboss.as] WFLYSRV0025: Thorntail 2.3.0.Final (WildFly Core 7.0.0.Final) started in 6289ms - Started 315 of 475 services (298 services are lazy, passive or on-demand)
+CUSTOM LOG FORMAT INFO [org.wildfly.swarm.runtime.deployer] deploying swagger-ui.war
+CUSTOM LOG FORMAT INFO [org.jboss.as.server.deployment] WFLYSRV0027: Starting deployment of "swagger-ui.war" (runtime-name: "swagger-ui.war")
+CUSTOM LOG FORMAT WARN [org.jboss.as.dependency.private] WFLYSRV0018: Deployment "deployment.swagger-ui.war" is using a private module ("org.jboss.ironjacamar.jdbcadapters") which may be changed or removed in future versions without notice.
+CUSTOM LOG FORMAT WARN [org.jboss.as.dependency.private] WFLYSRV0018: Deployment "deployment.swagger-ui.war" is using a private module ("org.infinispan") which may be changed or removed in future versions without notice.
+CUSTOM LOG FORMAT WARN [org.jboss.as.dependency.private] WFLYSRV0018: Deployment "deployment.swagger-ui.war" is using a private module ("org.infinispan.commons") which may be changed or removed in future versions without notice.
+CUSTOM LOG FORMAT WARN [org.jboss.as.dependency.private] WFLYSRV0018: Deployment "deployment.swagger-ui.war" is using a private module ("org.jboss.jts") which may be changed or removed in future versions without notice.
+CUSTOM LOG FORMAT INFO [org.jboss.weld.deployer] WFLYWELD0003: Processing weld deployment swagger-ui.war
+CUSTOM LOG FORMAT INFO [org.hibernate.validator.internal.util.Version] HV000001: Hibernate Validator 6.0.14.Final
+CUSTOM LOG FORMAT INFO [org.jboss.weld.Version] WELD-000900: 3.0.5 (Final)
+CUSTOM LOG FORMAT INFO [org.wildfly.extension.undertow] WFLYUT0018: Host default-host starting
+CUSTOM LOG FORMAT INFO [org.wildfly.extension.undertow] WFLYUT0021: Registered web context: '/swagger-ui' for server 'default-server'
+CUSTOM LOG FORMAT INFO [org.jboss.as.server] WFLYSRV0010: Deployed "swagger-ui.war" (runtime-name : "swagger-ui.war")
+CUSTOM LOG FORMAT INFO [org.wildfly.swarm.swagger] TTSWGR0004: Configure Swagger for deployment users.war with package com.romeroej.microservice.rest.application.api
+CUSTOM LOG FORMAT INFO [org.wildfly.swarm.runtime.deployer] deploying users.war
+CUSTOM LOG FORMAT INFO [org.jboss.as.server.deployment] WFLYSRV0027: Starting deployment of "users.war" (runtime-name: "users.war")
+CUSTOM LOG FORMAT INFO [org.jboss.as.jpa] WFLYJPA0002: Read persistence.xml for MyPU
+CUSTOM LOG FORMAT WARN [org.jboss.as.dependency.private] WFLYSRV0018: Deployment "deployment.users.war" is using a private module ("org.jboss.ironjacamar.jdbcadapters") which may be changed or removed in future versions without notice.
+CUSTOM LOG FORMAT WARN [org.jboss.as.dependency.private] WFLYSRV0018: Deployment "deployment.users.war" is using a private module ("org.infinispan") which may be changed or removed in future versions without notice.
+CUSTOM LOG FORMAT WARN [org.jboss.as.dependency.private] WFLYSRV0018: Deployment "deployment.users.war" is using a private module ("org.infinispan.commons") which may be changed or removed in future versions without notice.
+CUSTOM LOG FORMAT WARN [org.jboss.as.dependency.private] WFLYSRV0018: Deployment "deployment.users.war" is using a private module ("org.jboss.jts") which may be changed or removed in future versions without notice.
+CUSTOM LOG FORMAT INFO [org.jboss.as.jpa] WFLYJPA0010: Starting Persistence Unit (phase 1 of 2) Service 'users.war#MyPU'
+CUSTOM LOG FORMAT INFO [org.jboss.weld.deployer] WFLYWELD0003: Processing weld deployment users.war
+CUSTOM LOG FORMAT INFO [org.hibernate.jpa.internal.util.LogHelper] HHH000204: Processing PersistenceUnitInfo [
+	name: MyPU
+	...]
+CUSTOM LOG FORMAT INFO [org.jboss.as.ejb3.deployment] WFLYEJB0473: JNDI bindings for session bean named 'CurrencyExchangeService' in deployment unit 'deployment "users.war"' are as follows:
+
+	java:global/users/CurrencyExchangeService!com.romeroej.microservice.rest.domain.service.CurrencyExchangeService
+	java:app/users/CurrencyExchangeService!com.romeroej.microservice.rest.domain.service.CurrencyExchangeService
+	java:module/CurrencyExchangeService!com.romeroej.microservice.rest.domain.service.CurrencyExchangeService
+	ejb:users/CurrencyExchangeService!com.romeroej.microservice.rest.domain.service.CurrencyExchangeService
+	java:global/users/CurrencyExchangeService
+	java:app/users/CurrencyExchangeService
+	java:module/CurrencyExchangeService
+
+CUSTOM LOG FORMAT INFO [org.hibernate.Version] HHH000412: Hibernate Core {5.3.7.Final}
+CUSTOM LOG FORMAT INFO [org.hibernate.cfg.Environment] HHH000206: hibernate.properties not found
+CUSTOM LOG FORMAT INFO [org.hibernate.annotations.common.Version] HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+CUSTOM LOG FORMAT INFO [org.jboss.as.connector.deployers.jdbc] WFLYJCA0004: Deploying JDBC-compliant driver class org.h2.Driver (version 1.4)
+CUSTOM LOG FORMAT INFO [org.jboss.as.connector.deployers.jdbc] WFLYJCA0018: Started Driver service with driver-name = users.war_org.h2.Driver_1_4
+CUSTOM LOG FORMAT INFO [org.jboss.as.jpa] WFLYJPA0010: Starting Persistence Unit (phase 2 of 2) Service 'users.war#MyPU'
+CUSTOM LOG FORMAT INFO [org.hibernate.dialect.Dialect] HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+CUSTOM LOG FORMAT INFO [org.hibernate.envers.boot.internal.EnversServiceImpl] Envers integration enabled? : true
+CUSTOM LOG FORMAT INFO [org.hibernate.tool.schema.internal.SchemaCreatorImpl] HHH000476: Executing import script 'ScriptSourceInputFromUrl(vfs:/content/users.war/WEB-INF/classes/META-INF/load.sql)'
+CUSTOM LOG FORMAT INFO [org.hibernate.tool.schema.internal.SchemaCreatorImpl] HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@320b0b5e'
+CUSTOM LOG FORMAT INFO [org.jboss.resteasy.resteasy_jaxrs.i18n] RESTEASY002225: Deploying javax.ws.rs.core.Application: class com.romeroej.microservice.rest.ApplicationActivator$Proxy$_$$_WeldClientProxy
+CUSTOM LOG FORMAT WARN [org.jboss.as.weld] WFLYWELD0052: Using deployment classloader to load proxy classes for module io.swagger. Package-private access will not work. To fix this the module should declare dependencies on [org.jboss.weld.core, org.jboss.weld.spi]
+CUSTOM LOG FORMAT INFO [org.wildfly.extension.undertow] WFLYUT0021: Registered web context: '/' for server 'default-server'
+CUSTOM LOG FORMAT INFO [org.jboss.as.server] WFLYSRV0010: Deployed "users.war" (runtime-name : "users.war")
+CUSTOM LOG FORMAT INFO [org.wildfly.swarm] THORN99999: Thorntail is Ready
+CUSTOM LOG FORMAT INFO [org.infinispan.factories.GlobalComponentRegistry] ISPN000128: Infinispan version: Infinispan 'Infinity Minus ONE +2' 9.4.3.Final
+CUSTOM LOG FORMAT INFO [org.jboss.as.clustering.infinispan] WFLYCLINF0002: Started default cache from server container
+CUSTOM LOG FORMAT INFO [org.jboss.as.clustering.infinispan] WFLYCLINF0002: Started passivation cache from web container
+CUSTOM LOG FORMAT INFO [org.jboss.as.clustering.infinispan] WFLYCLINF0002: Started passivation cache from ejb container
+CUSTOM LOG FORMAT ERROR [org.jboss.as.controller.management-operation] WFLYCTL0013: Operation ("add") failed - address: ([
+    ("subsystem" => "undertow"),
+    ("server" => "default-server"),
+    ("http-listener" => "default")
+]) - failure description: {"WFLYCTL0080: Failed services" => {"org.wildfly.undertow.listener.default" => "Address already in use /0:0:0:0:0:0:0:0:8080"}}
+CUSTOM LOG FORMAT INFO [org.jboss.as.controller] WFLYCTL0183: Service status report
+WFLYCTL0186:   Services which failed to start:      service org.wildfly.undertow.listener.default: Address already in use /0:0:0:0:0:0:0:0:8080
+
+CUSTOM LOG FORMAT INFO [org.jboss.as.server] WFLYSRV0212: Resuming server
+CUSTOM LOG FORMAT ERROR [org.jboss.as] WFLYSRV0026: Thorntail 2.3.0.Final (WildFly Core 7.0.0.Final) started (with errors) in 5189ms - Started 310 of 473 services (1 services failed or missing dependencies, 298 services are lazy, passive or on-demand)
+CUSTOM LOG FORMAT ERROR [stderr] java.lang.RuntimeException: org.jboss.msc.service.StartException in service org.wildfly.undertow.listener.default: Address already in use /0:0:0:0:0:0:0:0:8080
+CUSTOM LOG FORMAT ERROR [stderr] 	at org.wildfly.swarm.spi.api.ClassLoading.withTCCL(ClassLoading.java:45)
+CUSTOM LOG FORMAT ERROR [stderr] 	at org.wildfly.swarm.container.runtime.ServerBootstrapImpl.bootstrap(ServerBootstrapImpl.java:113)
+CUSTOM LOG FORMAT ERROR [stderr] 	at org.wildfly.swarm.Swarm.start(Swarm.java:400)
+CUSTOM LOG FORMAT ERROR [stderr] 	at org.wildfly.swarm.Swarm.main(Swarm.java:744)
+CUSTOM LOG FORMAT ERROR [stderr] 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+CUSTOM LOG FORMAT ERROR [stderr] 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+CUSTOM LOG FORMAT ERROR [stderr] 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+CUSTOM LOG FORMAT ERROR [stderr] 	at java.lang.reflect.Method.invoke(Method.java:498)
+CUSTOM LOG FORMAT ERROR [stderr] 	at org.wildfly.swarm.bootstrap.MainInvoker.invoke(MainInvoker.java:57)
+CUSTOM LOG FORMAT ERROR [stderr] 	at org.wildfly.swarm.bootstrap.Main.run(Main.java:134)
+CUSTOM LOG FORMAT ERROR [stderr] 	at org.wildfly.swarm.bootstrap.Main.main(Main.java:87)
+CUSTOM LOG FORMAT ERROR [stderr] 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+CUSTOM LOG FORMAT ERROR [stderr] 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+CUSTOM LOG FORMAT ERROR [stderr] 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+CUSTOM LOG FORMAT ERROR [stderr] 	at java.lang.reflect.Method.invoke(Method.java:498)
+CUSTOM LOG FORMAT ERROR [stderr] 	at org.wildfly.swarm.runner.Runner.callWithClassloader(Runner.java:107)
+CUSTOM LOG FORMAT ERROR [stderr] 	at org.wildfly.swarm.runner.Runner.run(Runner.java:92)
+CUSTOM LOG FORMAT ERROR [stderr] 	at org.wildfly.swarm.runner.Runner.main(Runner.java:88)
+CUSTOM LOG FORMAT ERROR [stderr] Caused by: org.jboss.msc.service.StartException in service org.wildfly.undertow.listener.default: Address already in use /0:0:0:0:0:0:0:0:8080
+CUSTOM LOG FORMAT ERROR [stderr] 	at org.wildfly.extension.undertow.ListenerService.start(ListenerService.java:209)
+CUSTOM LOG FORMAT ERROR [stderr] 	at org.jboss.msc.service.ServiceControllerImpl$StartTask.startService(ServiceControllerImpl.java:1738)
+CUSTOM LOG FORMAT ERROR [stderr] 	at org.jboss.msc.service.ServiceControllerImpl$StartTask.execute(ServiceControllerImpl.java:1700)
+CUSTOM LOG FORMAT ERROR [stderr] 	at org.jboss.msc.service.ServiceControllerImpl$ControllerTask.run(ServiceControllerImpl.java:1558)
+CUSTOM LOG FORMAT ERROR [stderr] 	at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+CUSTOM LOG FORMAT ERROR [stderr] 	at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1985)
+CUSTOM LOG FORMAT ERROR [stderr] 	at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1487)
+CUSTOM LOG FORMAT ERROR [stderr] 	at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1378)
+CUSTOM LOG FORMAT ERROR [stderr] 	at java.lang.Thread.run(Thread.java:748)
+CUSTOM LOG FORMAT ERROR [stderr] java.lang.RuntimeException: org.jboss.msc.service.StartException in service org.wildfly.undertow.listener.default: Address already in use /0:0:0:0:0:0:0:0:8080
+CUSTOM LOG FORMAT ERROR [stderr] 	at org.wildfly.swarm.spi.api.ClassLoading.withTCCL(ClassLoading.java:45)
+CUSTOM LOG FORMAT ERROR [stderr] 	at org.wildfly.swarm.container.runtime.ServerBootstrapImpl.bootstrap(ServerBootstrapImpl.java:113)
+CUSTOM LOG FORMAT ERROR [stderr] 	at org.wildfly.swarm.Swarm.start(Swarm.java:400)
+CUSTOM LOG FORMAT ERROR [stderr] 	at org.wildfly.swarm.Swarm.main(Swarm.java:744)
+CUSTOM LOG FORMAT ERROR [stderr] 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+CUSTOM LOG FORMAT ERROR [stderr] 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+CUSTOM LOG FORMAT ERROR [stderr] 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+CUSTOM LOG FORMAT ERROR [stderr] 	at java.lang.reflect.Method.invoke(Method.java:498)
+CUSTOM LOG FORMAT ERROR [stderr] 	at org.wildfly.swarm.bootstrap.MainInvoker.invoke(MainInvoker.java:57)
+CUSTOM LOG FORMAT ERROR [stderr] 	at org.wildfly.swarm.bootstrap.Main.run(Main.java:134)
+CUSTOM LOG FORMAT ERROR [stderr] 	at org.wildfly.swarm.bootstrap.Main.main(Main.java:87)
+CUSTOM LOG FORMAT ERROR [stderr] 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+CUSTOM LOG FORMAT ERROR [stderr] 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+CUSTOM LOG FORMAT ERROR [stderr] 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+CUSTOM LOG FORMAT ERROR [stderr] 	at java.lang.reflect.Method.invoke(Method.java:498)
+CUSTOM LOG FORMAT ERROR [stderr] 	at org.wildfly.swarm.runner.Runner.callWithClassloader(Runner.java:107)
+CUSTOM LOG FORMAT ERROR [stderr] 	at org.wildfly.swarm.runner.Runner.run(Runner.java:92)
+CUSTOM LOG FORMAT ERROR [stderr] 	at org.wildfly.swarm.runner.Runner.main(Runner.java:88)
+CUSTOM LOG FORMAT ERROR [stderr] Caused by: org.jboss.msc.service.StartException in service org.wildfly.undertow.listener.default: Address already in use /0:0:0:0:0:0:0:0:8080
+CUSTOM LOG FORMAT ERROR [stderr] 	at org.wildfly.extension.undertow.ListenerService.start(ListenerService.java:209)
+CUSTOM LOG FORMAT ERROR [stderr] 	at org.jboss.msc.service.ServiceControllerImpl$StartTask.startService(ServiceControllerImpl.java:1738)
+CUSTOM LOG FORMAT ERROR [stderr] 	at org.jboss.msc.service.ServiceControllerImpl$StartTask.execute(ServiceControllerImpl.java:1700)
+CUSTOM LOG FORMAT ERROR [stderr] 	at org.jboss.msc.service.ServiceControllerImpl$ControllerTask.run(ServiceControllerImpl.java:1558)
+CUSTOM LOG FORMAT ERROR [stderr] 	at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+CUSTOM LOG FORMAT ERROR [stderr] 	at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1985)
+CUSTOM LOG FORMAT ERROR [stderr] 	at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1487)
+CUSTOM LOG FORMAT ERROR [stderr] 	at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1378)
+CUSTOM LOG FORMAT ERROR [stderr] 	at java.lang.Thread.run(Thread.java:748)
+CUSTOM LOG FORMAT INFO [org.wildfly.swarm] THORN0027: Shutdown requested
+CUSTOM LOG FORMAT INFO [org.jboss.as.server] WFLYSRV0236: Suspending server with no timeout.
+CUSTOM LOG FORMAT INFO [org.jboss.as.ejb3] WFLYEJB0493: EJB subsystem suspension complete
+CUSTOM LOG FORMAT INFO [org.jboss.as.server] WFLYSRV0220: Server shutdown has been requested via an OS signal
+CUSTOM LOG FORMAT INFO [org.jboss.as.connector.subsystems.datasources] WFLYJCA0010: Unbound data source [java:jboss/datasources/ExampleDS]
+CUSTOM LOG FORMAT INFO [org.wildfly.extension.undertow] WFLYUT0004: Undertow 2.0.15.Final stopping
+CUSTOM LOG FORMAT INFO [org.infinispan.eviction.impl.PassivationManagerImpl] ISPN000029: Passivating all entries to disk
+CUSTOM LOG FORMAT INFO [org.infinispan.eviction.impl.PassivationManagerImpl] ISPN000029: Passivating all entries to disk
+CUSTOM LOG FORMAT INFO [org.jboss.as.connector.deployers.jdbc] WFLYJCA0019: Stopped Driver service with driver-name = h2
+CUSTOM LOG FORMAT INFO [org.jboss.as.clustering.infinispan] WFLYCLINF0003: Stopped default cache from server container
+CUSTOM LOG FORMAT INFO [org.infinispan.eviction.impl.PassivationManagerImpl] ISPN000030: Passivated 0 entries in 25 milliseconds
+CUSTOM LOG FORMAT INFO [org.infinispan.eviction.impl.PassivationManagerImpl] ISPN000030: Passivated 0 entries in 25 milliseconds
+CUSTOM LOG FORMAT INFO [org.jboss.as.clustering.infinispan] WFLYCLINF0003: Stopped passivation cache from web container
+CUSTOM LOG FORMAT INFO [org.jboss.as.clustering.infinispan] WFLYCLINF0003: Stopped passivation cache from ejb container
+CUSTOM LOG FORMAT INFO [org.jboss.as] WFLYSRV0050: Thorntail 2.3.0.Final (WildFly Core 7.0.0.Final) stopped in 91ms
+CUSTOM LOG FORMAT INFO [org.wildfly.swarm] THORN0027: Shutdown requested
+CUSTOM LOG FORMAT INFO [org.jboss.as.server] WFLYSRV0236: Suspending server with no timeout.
+CUSTOM LOG FORMAT INFO [org.jboss.as.ejb3] WFLYEJB0493: EJB subsystem suspension complete
+CUSTOM LOG FORMAT INFO [org.jboss.as.server] WFLYSRV0220: Server shutdown has been requested via an OS signal
+CUSTOM LOG FORMAT INFO [org.jboss.as.connector.deployers.jdbc] WFLYJCA0019: Stopped Driver service with driver-name = users.war_org.h2.Driver_1_4
+CUSTOM LOG FORMAT INFO [org.wildfly.extension.undertow] WFLYUT0022: Unregistered web context: '/swagger-ui' from server 'default-server'
+CUSTOM LOG FORMAT INFO [org.wildfly.extension.undertow] WFLYUT0022: Unregistered web context: '/' from server 'default-server'
+CUSTOM LOG FORMAT INFO [org.infinispan.eviction.impl.PassivationManagerImpl] ISPN000029: Passivating all entries to disk
+CUSTOM LOG FORMAT INFO [org.wildfly.extension.undertow] WFLYUT0008: Undertow HTTP listener default suspending
+CUSTOM LOG FORMAT INFO [org.infinispan.eviction.impl.PassivationManagerImpl] ISPN000029: Passivating all entries to disk
+CUSTOM LOG FORMAT INFO [org.jboss.as.clustering.infinispan] WFLYCLINF0003: Stopped default cache from server container
+CUSTOM LOG FORMAT INFO [org.wildfly.extension.undertow] WFLYUT0007: Undertow HTTP listener default stopped, was bound to [0:0:0:0:0:0:0:0]:8080
+CUSTOM LOG FORMAT INFO [org.wildfly.extension.undertow] WFLYUT0019: Host default-host stopping
+CUSTOM LOG FORMAT INFO [org.infinispan.eviction.impl.PassivationManagerImpl] ISPN000030: Passivated 0 entries in 29 milliseconds
+CUSTOM LOG FORMAT INFO [org.wildfly.extension.undertow] WFLYUT0004: Undertow 2.0.15.Final stopping
+CUSTOM LOG FORMAT INFO [org.infinispan.eviction.impl.PassivationManagerImpl] ISPN000030: Passivated 0 entries in 31 milliseconds
+CUSTOM LOG FORMAT INFO [org.jboss.as.clustering.infinispan] WFLYCLINF0003: Stopped passivation cache from ejb container
+CUSTOM LOG FORMAT INFO [org.jboss.as.clustering.infinispan] WFLYCLINF0003: Stopped passivation cache from web container
+CUSTOM LOG FORMAT INFO [org.jboss.as.jpa] WFLYJPA0011: Stopping Persistence Unit (phase 2 of 2) Service 'users.war#MyPU'
+CUSTOM LOG FORMAT INFO [org.hibernate.orm.beans] HHH10005004: Stopping BeanContainer : org.hibernate.resource.beans.container.internal.CdiBeanContainerExtendedAccessImpl@2382043d
+CUSTOM LOG FORMAT INFO [org.jboss.as.jpa] WFLYJPA0011: Stopping Persistence Unit (phase 1 of 2) Service 'users.war#MyPU'
+CUSTOM LOG FORMAT INFO [org.jboss.as.connector.subsystems.datasources] WFLYJCA0010: Unbound data source [java:jboss/datasources/ExampleDS]
+CUSTOM LOG FORMAT INFO [org.jboss.as.connector.deployers.jdbc] WFLYJCA0019: Stopped Driver service with driver-name = h2
+CUSTOM LOG FORMAT INFO [org.jboss.as.server.deployment] WFLYSRV0028: Stopped deployment swagger-ui.war (runtime-name: swagger-ui.war) in 113ms
+CUSTOM LOG FORMAT INFO [org.jboss.as.server.deployment] WFLYSRV0028: Stopped deployment users.war (runtime-name: users.war) in 143ms
+CUSTOM LOG FORMAT INFO [org.jboss.as] WFLYSRV0050: Thorntail 2.3.0.Final (WildFly Core 7.0.0.Final) stopped in 159ms
+CUSTOM LOG FORMAT INFO [org.jboss.as.connector.subsystems.datasources] WFLYJCA0001: Bound data source [java:jboss/datasources/ExampleDS]
+CUSTOM LOG FORMAT INFO [org.infinispan.factories.GlobalComponentRegistry] ISPN000128: Infinispan version: Infinispan 'Infinity Minus ONE +2' 9.4.3.Final
+CUSTOM LOG FORMAT INFO [org.jboss.as.clustering.infinispan] WFLYCLINF0002: Started default cache from server container
+CUSTOM LOG FORMAT INFO [org.jboss.as.clustering.infinispan] WFLYCLINF0002: Started passivation cache from ejb container
+CUSTOM LOG FORMAT INFO [org.jboss.as.clustering.infinispan] WFLYCLINF0002: Started passivation cache from web container
+CUSTOM LOG FORMAT INFO [org.jboss.as.server] WFLYSRV0212: Resuming server
+CUSTOM LOG FORMAT INFO [org.jboss.as] WFLYSRV0025: Thorntail 2.3.0.Final (WildFly Core 7.0.0.Final) started in 4046ms - Started 315 of 475 services (298 services are lazy, passive or on-demand)
+CUSTOM LOG FORMAT INFO [org.wildfly.swarm.runtime.deployer] deploying swagger-ui.war
+CUSTOM LOG FORMAT INFO [org.jboss.as.server.deployment] WFLYSRV0027: Starting deployment of "swagger-ui.war" (runtime-name: "swagger-ui.war")
+CUSTOM LOG FORMAT WARN [org.jboss.as.dependency.private] WFLYSRV0018: Deployment "deployment.swagger-ui.war" is using a private module ("org.infinispan") which may be changed or removed in future versions without notice.
+CUSTOM LOG FORMAT WARN [org.jboss.as.dependency.private] WFLYSRV0018: Deployment "deployment.swagger-ui.war" is using a private module ("org.infinispan.commons") which may be changed or removed in future versions without notice.
+CUSTOM LOG FORMAT WARN [org.jboss.as.dependency.private] WFLYSRV0018: Deployment "deployment.swagger-ui.war" is using a private module ("org.jboss.ironjacamar.jdbcadapters") which may be changed or removed in future versions without notice.
+CUSTOM LOG FORMAT WARN [org.jboss.as.dependency.private] WFLYSRV0018: Deployment "deployment.swagger-ui.war" is using a private module ("org.jboss.jts") which may be changed or removed in future versions without notice.
+CUSTOM LOG FORMAT INFO [org.jboss.weld.deployer] WFLYWELD0003: Processing weld deployment swagger-ui.war
+CUSTOM LOG FORMAT INFO [org.hibernate.validator.internal.util.Version] HV000001: Hibernate Validator 6.0.14.Final
+CUSTOM LOG FORMAT INFO [org.jboss.weld.Version] WELD-000900: 3.0.5 (Final)
+CUSTOM LOG FORMAT INFO [org.wildfly.extension.undertow] WFLYUT0018: Host default-host starting
+CUSTOM LOG FORMAT INFO [org.wildfly.extension.undertow] WFLYUT0021: Registered web context: '/swagger-ui' for server 'default-server'
+CUSTOM LOG FORMAT INFO [org.jboss.as.server] WFLYSRV0010: Deployed "swagger-ui.war" (runtime-name : "swagger-ui.war")
+CUSTOM LOG FORMAT INFO [org.wildfly.swarm.swagger] TTSWGR0004: Configure Swagger for deployment users.war with package com.romeroej.microservice.rest.application.api
+CUSTOM LOG FORMAT INFO [org.wildfly.swarm.runtime.deployer] deploying users.war
+CUSTOM LOG FORMAT INFO [org.jboss.as.server.deployment] WFLYSRV0027: Starting deployment of "users.war" (runtime-name: "users.war")
+CUSTOM LOG FORMAT INFO [org.jboss.as.jpa] WFLYJPA0002: Read persistence.xml for MyPU
+CUSTOM LOG FORMAT WARN [org.jboss.as.dependency.private] WFLYSRV0018: Deployment "deployment.users.war" is using a private module ("org.infinispan") which may be changed or removed in future versions without notice.
+CUSTOM LOG FORMAT WARN [org.jboss.as.dependency.private] WFLYSRV0018: Deployment "deployment.users.war" is using a private module ("org.infinispan.commons") which may be changed or removed in future versions without notice.
+CUSTOM LOG FORMAT WARN [org.jboss.as.dependency.private] WFLYSRV0018: Deployment "deployment.users.war" is using a private module ("org.jboss.ironjacamar.jdbcadapters") which may be changed or removed in future versions without notice.
+CUSTOM LOG FORMAT WARN [org.jboss.as.dependency.private] WFLYSRV0018: Deployment "deployment.users.war" is using a private module ("org.jboss.jts") which may be changed or removed in future versions without notice.
+CUSTOM LOG FORMAT INFO [org.jboss.as.jpa] WFLYJPA0010: Starting Persistence Unit (phase 1 of 2) Service 'users.war#MyPU'
+CUSTOM LOG FORMAT INFO [org.jboss.weld.deployer] WFLYWELD0003: Processing weld deployment users.war
+CUSTOM LOG FORMAT INFO [org.hibernate.jpa.internal.util.LogHelper] HHH000204: Processing PersistenceUnitInfo [
+	name: MyPU
+	...]
+CUSTOM LOG FORMAT INFO [org.jboss.as.ejb3.deployment] WFLYEJB0473: JNDI bindings for session bean named 'CurrencyExchangeService' in deployment unit 'deployment "users.war"' are as follows:
+
+	java:global/users/CurrencyExchangeService!com.romeroej.microservice.rest.domain.service.CurrencyExchangeService
+	java:app/users/CurrencyExchangeService!com.romeroej.microservice.rest.domain.service.CurrencyExchangeService
+	java:module/CurrencyExchangeService!com.romeroej.microservice.rest.domain.service.CurrencyExchangeService
+	ejb:users/CurrencyExchangeService!com.romeroej.microservice.rest.domain.service.CurrencyExchangeService
+	java:global/users/CurrencyExchangeService
+	java:app/users/CurrencyExchangeService
+	java:module/CurrencyExchangeService
+
+CUSTOM LOG FORMAT INFO [org.hibernate.Version] HHH000412: Hibernate Core {5.3.7.Final}
+CUSTOM LOG FORMAT INFO [org.hibernate.cfg.Environment] HHH000206: hibernate.properties not found
+CUSTOM LOG FORMAT INFO [org.hibernate.annotations.common.Version] HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+CUSTOM LOG FORMAT INFO [org.jboss.as.connector.deployers.jdbc] WFLYJCA0004: Deploying JDBC-compliant driver class org.h2.Driver (version 1.4)
+CUSTOM LOG FORMAT INFO [org.jboss.as.connector.deployers.jdbc] WFLYJCA0018: Started Driver service with driver-name = users.war_org.h2.Driver_1_4
+CUSTOM LOG FORMAT INFO [org.jboss.as.jpa] WFLYJPA0010: Starting Persistence Unit (phase 2 of 2) Service 'users.war#MyPU'
+CUSTOM LOG FORMAT INFO [org.hibernate.dialect.Dialect] HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+CUSTOM LOG FORMAT INFO [org.hibernate.envers.boot.internal.EnversServiceImpl] Envers integration enabled? : true
+CUSTOM LOG FORMAT INFO [org.hibernate.tool.schema.internal.SchemaCreatorImpl] HHH000476: Executing import script 'ScriptSourceInputFromUrl(vfs:/content/users.war/WEB-INF/classes/META-INF/load.sql)'
+CUSTOM LOG FORMAT INFO [org.hibernate.tool.schema.internal.SchemaCreatorImpl] HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@157e2e15'
+CUSTOM LOG FORMAT INFO [org.jboss.resteasy.resteasy_jaxrs.i18n] RESTEASY002225: Deploying javax.ws.rs.core.Application: class com.romeroej.microservice.rest.ApplicationActivator$Proxy$_$$_WeldClientProxy
+CUSTOM LOG FORMAT WARN [org.jboss.as.weld] WFLYWELD0052: Using deployment classloader to load proxy classes for module io.swagger. Package-private access will not work. To fix this the module should declare dependencies on [org.jboss.weld.core, org.jboss.weld.spi]
+CUSTOM LOG FORMAT INFO [org.wildfly.extension.undertow] WFLYUT0021: Registered web context: '/' for server 'default-server'
+CUSTOM LOG FORMAT INFO [org.jboss.as.server] WFLYSRV0010: Deployed "users.war" (runtime-name : "users.war")
+CUSTOM LOG FORMAT INFO [org.wildfly.swarm] THORN99999: Thorntail is Ready
+CUSTOM LOG FORMAT INFO [org.wildfly.swarm] THORN0027: Shutdown requested
+CUSTOM LOG FORMAT INFO [org.jboss.as.server] WFLYSRV0236: Suspending server with no timeout.
+CUSTOM LOG FORMAT INFO [org.jboss.as.ejb3] WFLYEJB0493: EJB subsystem suspension complete
+CUSTOM LOG FORMAT INFO [org.jboss.as.server] WFLYSRV0220: Server shutdown has been requested via an OS signal
+CUSTOM LOG FORMAT INFO [org.jboss.as.connector.deployers.jdbc] WFLYJCA0019: Stopped Driver service with driver-name = users.war_org.h2.Driver_1_4
+CUSTOM LOG FORMAT INFO [org.wildfly.extension.undertow] WFLYUT0022: Unregistered web context: '/swagger-ui' from server 'default-server'
+CUSTOM LOG FORMAT INFO [org.wildfly.extension.undertow] WFLYUT0022: Unregistered web context: '/' from server 'default-server'
+CUSTOM LOG FORMAT INFO [org.wildfly.extension.undertow] WFLYUT0008: Undertow HTTP listener default suspending
+CUSTOM LOG FORMAT INFO [org.infinispan.eviction.impl.PassivationManagerImpl] ISPN000029: Passivating all entries to disk
+CUSTOM LOG FORMAT INFO [org.wildfly.extension.undertow] WFLYUT0007: Undertow HTTP listener default stopped, was bound to [0:0:0:0:0:0:0:0]:8080
+CUSTOM LOG FORMAT INFO [org.infinispan.eviction.impl.PassivationManagerImpl] ISPN000029: Passivating all entries to disk
+CUSTOM LOG FORMAT INFO [org.jboss.as.clustering.infinispan] WFLYCLINF0003: Stopped default cache from server container
+CUSTOM LOG FORMAT INFO [org.wildfly.extension.undertow] WFLYUT0019: Host default-host stopping
+CUSTOM LOG FORMAT INFO [org.infinispan.eviction.impl.PassivationManagerImpl] ISPN000030: Passivated 0 entries in 16 milliseconds
+CUSTOM LOG FORMAT INFO [org.infinispan.eviction.impl.PassivationManagerImpl] ISPN000030: Passivated 0 entries in 15 milliseconds
+CUSTOM LOG FORMAT INFO [org.wildfly.extension.undertow] WFLYUT0004: Undertow 2.0.15.Final stopping
+CUSTOM LOG FORMAT INFO [org.jboss.as.clustering.infinispan] WFLYCLINF0003: Stopped passivation cache from web container
+CUSTOM LOG FORMAT INFO [org.jboss.as.clustering.infinispan] WFLYCLINF0003: Stopped passivation cache from ejb container
+CUSTOM LOG FORMAT INFO [org.jboss.as.jpa] WFLYJPA0011: Stopping Persistence Unit (phase 2 of 2) Service 'users.war#MyPU'
+CUSTOM LOG FORMAT INFO [org.hibernate.orm.beans] HHH10005004: Stopping BeanContainer : org.hibernate.resource.beans.container.internal.CdiBeanContainerExtendedAccessImpl@1cfca6a0
+CUSTOM LOG FORMAT INFO [org.jboss.as.jpa] WFLYJPA0011: Stopping Persistence Unit (phase 1 of 2) Service 'users.war#MyPU'
+CUSTOM LOG FORMAT INFO [org.jboss.as.connector.subsystems.datasources] WFLYJCA0010: Unbound data source [java:jboss/datasources/ExampleDS]
+CUSTOM LOG FORMAT INFO [org.jboss.as.connector.deployers.jdbc] WFLYJCA0019: Stopped Driver service with driver-name = h2
+CUSTOM LOG FORMAT INFO [org.jboss.as.server.deployment] WFLYSRV0028: Stopped deployment swagger-ui.war (runtime-name: swagger-ui.war) in 122ms
+CUSTOM LOG FORMAT INFO [org.jboss.as.server.deployment] WFLYSRV0028: Stopped deployment users.war (runtime-name: users.war) in 142ms
+CUSTOM LOG FORMAT INFO [org.jboss.as] WFLYSRV0050: Thorntail 2.3.0.Final (WildFly Core 7.0.0.Final) stopped in 149ms

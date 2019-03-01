@@ -1,0 +1,95 @@
+= Thorntail JAX-RS Microservice with Swagger/Persistence & Docker
+
+
+This template generates a basic microservice based on thorntail `jaxrs`,`swagger`,`ejb`,`CDI` that allows a developer
+quickly start on a new project.
+
+
+== Project `pom.xml`
+
+The project is a normal maven project with `war` packaging.
+
+[source,xml]
+----
+<packaging>war</packaging>
+----
+
+The project adds a `<plugin>` to configure `thorntail-maven-plugin` to
+create the runnable `.jar`.
+
+[source,xml]
+----
+<plugin>
+  <groupId>io.thorntail</groupId>
+  <artifactId>thorntail-maven-plugin</artifactId>
+  <version>${version.thorntail}</version>
+  <executions>
+    <execution>
+      <goals>
+        <goal>package</goal>
+      </goals>
+    </execution>
+  </executions>
+</plugin>
+----
+
+
+== Swagger Annotations
+
+The JAX-RS API in this template is exposed in the `swagger.json` format
+by using the annotations provided by swagger itself. See the swagger wiki
+for complete documentation https://github.com/swagger-api/swagger-core/wiki/Annotations-1.5.X.
+
+
+== Run
+
+You can run it many ways:
+
+* mvn package && java -jar ./target/microservice-thorntail.jar
+* From your IDE, run class `org.wildfly.swarm.runner.Runner`
+
+
+== Docker
+
+
+Compile Docker Image (Based on openjdk:8-jre-alpine)
+
+[source]
+----
+mvn clean package -Pdocker
+----
+
+Execute Docker Image via MVN
+[source]
+----
+mvn docker:start -Pdocker
+----
+
+Execute Docker Image via docker
+
+[source]
+----
+docker run -p 8080:8080 microservice
+----
+
+
+== Use
+
+To `GET` the JAX-RS resouce
+
+    http://localhost:8080/api/time/v1/now
+    http://localhost:8080/api/cex/v1/rates
+
+To `GET` the API specification as a `swagger.json` document
+
+    http://localhost:8080/swagger.json
+
+== View the API with Swagger-UI
+
+
+Explore
+
+    http://localhost:8080/swagger-ui/index.html?url=http://localhost:8080/swagger.json
+
+
+> Any questions can be submited via GitHub
