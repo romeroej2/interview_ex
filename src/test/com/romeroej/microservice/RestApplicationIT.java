@@ -119,11 +119,29 @@ public class RestApplicationIT {
 
 
         final Response response = webTarget
-                .path("/sessions")
+                .path("/api/v1/users/")
                 .request(MediaType.APPLICATION_JSON)
                 .post(Entity.json(new User(
                         "romeroej",
                         "mypassword","string","string")));
+
+
+
+        assertThat(true);
+
+
+    }
+
+
+    @RunAsClient
+    @Test
+    public void testLogin( final WebTarget webTarget ) {
+
+
+        final Response response = webTarget
+                .path("/api/v1/romeroej/login")
+                .request(MediaType.APPLICATION_JSON)
+                .post(Entity.json("string"));
 
 
 

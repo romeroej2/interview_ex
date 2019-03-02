@@ -5,6 +5,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 
 /**
@@ -16,29 +17,16 @@ import java.io.Serializable;
  * @version 1.0
  * @since 2019-02-28
  */
+
+
 @Data
 @AllArgsConstructor
-@Entity
 public class WeatherData implements Serializable {
 
 
-
-    @Id
-    private String id;
-    private String name;
-    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "main_id")
-    private Main main;
-    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "weather_id")
-    private Weather weather;
-
-
-    public WeatherData() {
-    }
-
-
-
-
+     List<Weather> weather;
+     Main main;
+     int id;
+     String name;
+     int cod;
 }
-

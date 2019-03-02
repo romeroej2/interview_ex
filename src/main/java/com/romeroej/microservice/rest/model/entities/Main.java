@@ -3,9 +3,8 @@ package com.romeroej.microservice.rest.model.entities;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
 import java.io.Serializable;
+import java.util.List;
 
 
 /**
@@ -17,27 +16,15 @@ import java.io.Serializable;
  * @version 1.0
  * @since 2019-02-28
  */
+
 @Data
 @AllArgsConstructor
-@Entity
-public class Main implements Serializable {
-
-
-
-    @Id
-    private String id;
-
-    private String temp;
-    private String temp_min;
-    private String temp_max;
-
-
-
-    public Main() {
-    }
-
-
-
-
+public class Main
+{
+    public double temp ;
+    public int pressure ;
+    public int humidity ;
+    public double temp_min ;
+    public double temp_max ;
 }
 
