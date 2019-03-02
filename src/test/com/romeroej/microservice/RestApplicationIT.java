@@ -8,7 +8,7 @@ import com.google.gson.internal.bind.JsonTreeReader;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.MalformedJsonException;
 import com.romeroej.microservice.rest.application.ApplicationActivator;
-import com.romeroej.microservice.rest.application.api.CurrencyExchangeController;
+import com.romeroej.microservice.rest.application.api.ApiController;
 import com.romeroej.microservice.rest.application.api.filter.CORSFilter;
 import com.romeroej.microservice.rest.model.entities.CurrencyExchange;
 import com.romeroej.microservice.rest.domain.bussinesrules.CurrencyExchangeService;
@@ -49,7 +49,7 @@ public class RestApplicationIT {
 
         return ShrinkWrap.create(WebArchive.class)
                 .addPackage(CurrencyExchange.class.getPackage())
-                .addPackage(CurrencyExchangeController.class.getPackage())
+                .addPackage(ApiController.class.getPackage())
                 .addPackage(CORSFilter.class.getPackage())
                 .addPackage(CurrencyExchangeService.class.getPackage())
                 .addClass(ApplicationActivator.class)
