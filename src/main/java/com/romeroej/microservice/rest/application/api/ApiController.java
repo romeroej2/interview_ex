@@ -81,9 +81,10 @@ public class ApiController {
             notes = "Return created user",
             response = String.class
     )
-    @Produces(MediaType.APPLICATION_JSON)
+    //@Produces(MediaType.APPLICATION_JSON)
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Gets current CEX rates"),
+            @ApiResponse(code = 200, message = "Gets created user"),
+            @ApiResponse(code = 409, message = "User Exists"),
             @ApiResponse(code = 500, message = "Generic Error")})
     public Response createUser( @ApiParam(value = "Full Name", required = true) User user
                                ) {
@@ -96,7 +97,10 @@ public class ApiController {
             return Response.ok(userIdentityService.createUser(user), MediaType.APPLICATION_JSON).build();
 
         } catch (Exception e) {
-            return Response.status(500, "Problem Getting CEX Data: " + e.getMessage()).build();
+            if(e.getMessage().contains("User Already Exists"))
+            return Response.status(409,  e.getMessage()).build();
+                else
+            return Response.status(500, "Problem Creating User: " + e.getMessage()).build();
         }
     }
 

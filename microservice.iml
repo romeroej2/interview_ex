@@ -11,6 +11,17 @@
         <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/src/main/resources/META-INF/persistence.xml" />
       </configuration>
     </facet>
+    <facet type="web" name="Web">
+      <configuration>
+        <webroots>
+          <root url="file://$MODULE_DIR$/src/main/webapp" relative="/" />
+        </webroots>
+        <sourceRoots>
+          <root url="file://$MODULE_DIR$/src/main/java" />
+          <root url="file://$MODULE_DIR$/src/main/resources" />
+        </sourceRoots>
+      </configuration>
+    </facet>
   </component>
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8">
     <output url="file://$MODULE_DIR$/target/classes" />
@@ -283,5 +294,13 @@
     <orderEntry type="library" scope="TEST" name="Maven: org.seleniumhq.selenium:selenium-leg-rc:2.53.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.easytesting:fest-assert:1.4" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.easytesting:fest-util:1.1.6" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.jboss.resteasy:resteasy-client:3.0.2.Final" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.jboss.resteasy:resteasy-jaxrs:3.0.2.Final" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.jboss.resteasy:jaxrs-api:3.0.2.Final" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.scannotation:scannotation:1.0.3" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: javassist:javassist:3.12.1.GA" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: javax.annotation:jsr250-api:1.0" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: javax.activation:activation:1.1" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: net.jcip:jcip-annotations:1.0" level="project" />
   </component>
 </module>

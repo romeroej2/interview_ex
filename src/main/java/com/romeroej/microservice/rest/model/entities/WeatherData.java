@@ -29,4 +29,5 @@ public class WeatherData implements Serializable {
      int id;
      String name;
      int cod;
+     String message;
 }

@@ -20,6 +20,7 @@ import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.container.test.api.RunAsClient;
 import org.jboss.arquillian.drone.api.annotation.Drone;
 import org.jboss.arquillian.junit.Arquillian;
+import org.jboss.arquillian.junit.InSequence;
 import org.jboss.shrinkwrap.api.Archive;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.asset.EmptyAsset;
@@ -31,6 +32,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 
+import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
@@ -56,16 +58,14 @@ public class RestApplicationIT {
 
 
         return ShrinkWrap.create(WebArchive.class)
-                //.addPackage(CurrencyExchange.class.getPackage())
+
                 .addPackage(ApiController.class.getPackage())
                 .addPackage(CORSFilter.class.getPackage())
                 .addPackage(EventAuditService.class.getPackage())
                 .addPackage(Weather.class.getPackage())
                 .addClass(ApplicationActivator.class)
-
                 .addPackage(GsonBuilder.class.getPackage())
                 .addAsLibraries(resolver.resolve("joda-time:joda-time:2.7").withTransitivity().as(JavaArchive.class))
-
                 .addPackage(Excluder.class.getPackage())
                 .addPackage(JsonTreeReader.class.getPackage())
                 .addPackage(TypeToken.class.getPackage())
@@ -83,6 +83,9 @@ public class RestApplicationIT {
     }
 
 
+
+
+    //Validate JSON SPEC deplioyed
     @RunAsClient
     @Test
     public void testSwaggerJson() {
@@ -91,14 +94,17 @@ public class RestApplicationIT {
     }
 
 
+
+    //Validate Heartbeat endpoint alive
     @RunAsClient
     @Test
     public void testServiceStatus() {
-        browser.navigate().to("http://localhost:8080/api/cex/users/romeroej/login");
+        browser.navigate().to("http://localhost:8080/api/v1/status");
         assertThat(browser.getPageSource()).contains("bussinesrules ok");
     }
 
 
+    //Service returning weather info for Bogota
     @RunAsClient
     @Test
     public void testGetWeather() {
@@ -106,50 +112,91 @@ public class RestApplicationIT {
         assertThat(browser.getPageSource()).contains("\"Bogota\"");
     }
 
+
+
+    //After Weather Info consumed, Logged in Events?
     @RunAsClient
     @Test
     public void testAudit() {
+
+        //generate an event
+        browser.navigate().to("http://localhost:8080/api/v1/weather/bogota");
+        //check that event exists.
         browser.navigate().to("http://localhost:8080/api/v1/eventInformation");
         assertThat(browser.getPageSource()).contains("Consulted Weather");
     }
 
+
+    //Register New User
     @RunAsClient
     @Test
-    public void testRegistration( final WebTarget webTarget ) {
+    @InSequence(1)
+    public void testRegistration() {
 
 
-        final Response response = webTarget
-                .path("/api/v1/users/")
-                .request(MediaType.APPLICATION_JSON)
-                .post(Entity.json(new User(
-                        "romeroej",
-                        "mypassword","string","string")));
+        final String urlStr =
+                "http://localhost:8080/api/v1/users/register";
+        String response =
+                ClientBuilder.newClient().target(urlStr).request()
+                        .post( Entity.json("{\"username\": \"string\",\"fullName\": \"string\",\"address\": \"string\",\"email\": \"string\",\"password\": \"string\"}"), String.class);
 
 
-
-        assertThat(true);
+        assertThat(response.contains("romeroej"));
 
 
     }
 
 
+
+    //Successfull Login
     @RunAsClient
     @Test
-    public void testLogin( final WebTarget webTarget ) {
-
-
-        final Response response = webTarget
-                .path("/api/v1/romeroej/login")
-                .request(MediaType.APPLICATION_JSON)
-                .post(Entity.json("string"));
+    @InSequence(2)
+    public void testLogin(  final WebTarget webTarget ) {
 
 
 
-        assertThat(true);
+        String urlStr =
+                "http://localhost:8080/api/v1/users/romeroej/login";
+        String response =
+                ClientBuilder.newClient().target(urlStr).request()
+                        .post( Entity.json("\"string\""), String.class);
+
+
+        assertThat(response.contains("romeroej"));
 
 
     }
 
+
+    //Failed Login
+    @RunAsClient
+    @Test
+    @InSequence(3)
+    public void testLoginFail(  final WebTarget webTarget ) {
+
+
+
+        String urlStr =
+                "http://localhost:8080/api/v1/users/romeroej/login";
+
+        try {
+            String response =
+                    ClientBuilder.newClient().target(urlStr).request()
+                            .post(Entity.json("bad"), String.class);
+            assertThat(false);
+        }catch (Exception ex)
+        {
+            if(ex.getMessage().contains("401"))
+                assertThat(true);
+        }
+
+
+
+
+
+
+    }
 
 }
 

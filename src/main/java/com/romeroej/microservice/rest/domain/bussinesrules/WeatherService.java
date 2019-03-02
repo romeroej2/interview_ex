@@ -5,6 +5,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.romeroej.microservice.rest.model.entities.WeatherData;
 import org.apache.commons.io.IOUtils;
+import org.apache.commons.lang3.StringEscapeUtils;
 import org.jboss.logging.Logger;
 import org.wildfly.swarm.spi.runtime.annotations.ConfigurationValue;
 
@@ -16,6 +17,7 @@ import javax.persistence.PersistenceContext;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLEncoder;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.stream.Stream;
@@ -59,6 +61,7 @@ public class WeatherService {
 
     public WeatherData queryRestEndpoint4Weather(String city) throws Exception {
 
+        city = URLEncoder.encode(city, "UTF-8");;
 
         String urlStr = String.format(weather_url,city,weather_token);
 
@@ -73,7 +76,6 @@ public class WeatherService {
 
             //Read REST info and Parse it to POJO to Persist.
             WeatherData response =gson.fromJson(IOUtils.toString(url, "UTF-8"), WeatherData.class);
-
 
 
             return response;
