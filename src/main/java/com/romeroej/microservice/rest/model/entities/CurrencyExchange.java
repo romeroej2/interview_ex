@@ -1,4 +1,4 @@
-package com.romeroej.microservice.rest.data.model;
+package com.romeroej.microservice.rest.model.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -1,13 +1,16 @@
-package com.romeroej.microservice.rest.domain.service;
+package com.romeroej.microservice.rest.domain.bussinesrules;
 
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.romeroej.microservice.rest.data.model.CurrencyExchange;
+import com.romeroej.microservice.rest.model.entities.CurrencyExchange;
 import org.apache.commons.io.IOUtils;
 import org.jboss.logging.Logger;
+import org.wildfly.swarm.spi.runtime.annotations.ConfigurationValue;
 
+import javax.annotation.PostConstruct;
 import javax.ejb.Stateless;
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.io.IOException;
@@ -36,6 +39,24 @@ public class CurrencyExchangeService {
 
     @PersistenceContext
     private EntityManager entityManager;
+
+    @Inject
+    @ConfigurationValue("microservice.cex-url")
+    private String cex_url;
+
+
+    @Inject
+    @ConfigurationValue("microservice.cex-token")
+    private String cex_token;
+
+    private String urlStr;
+
+    @PostConstruct
+    public void CurrencyExchangeServicePostConstruct()
+    {
+        urlStr = String.format(cex_url,cex_token);
+        LOG.infof("Resolved CEX URL:%s",urlStr);
+    }
 
 
     public CurrencyExchange getCEXRates(String currency) throws Exception {
@@ -120,10 +141,7 @@ public class CurrencyExchangeService {
     private CurrencyExchange queryRestEndpoint4CEX(String currency) throws Exception {
 
 
-        String urlStr = "http://data.fixer.io/api/latest?access_key=98389804f272658862bec77fd0af4f17&symbols=USD,AUD,CAD,PLN,MXN,COP&format=1";
 
-
-        LOG.infof("Getting CEX data from Endpoint %s", urlStr);
 
 
         try {

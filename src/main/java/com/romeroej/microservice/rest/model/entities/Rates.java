@@ -1,4 +1,4 @@
-package com.romeroej.microservice.rest.data.model;
+package com.romeroej.microservice.rest.model.entities;
 
 
 import lombok.AllArgsConstructor;
@@ -46,7 +46,7 @@ public class Rates implements Serializable {
     public Double getRate(String currency) throws Exception {
 
         //Get Currency Value using Reflection
-        Class<?> c = Class.forName("com.romeroej.microservice.rest.data.model.Rates");
+        Class<?> c = Class.forName("com.romeroej.microservice.rest.model.entities.Rates");
         Method method = c.getMethod("get" + currency);
         return (Double) method.invoke(this);
     }

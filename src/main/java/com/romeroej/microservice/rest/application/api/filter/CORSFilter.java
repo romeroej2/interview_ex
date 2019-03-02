@@ -1,4 +1,4 @@
-package com.romeroej.microservice.rest.application.filter;
+package com.romeroej.microservice.rest.application.api.filter;
 
 import javax.ws.rs.container.ContainerRequestContext;
 import javax.ws.rs.container.ContainerResponseContext;

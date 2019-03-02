@@ -2,7 +2,7 @@ swarm:
   logging:
     pattern-formatters:
       LOG_FORMATTER:
-        pattern: "CUSTOM LOG FORMAT %p [%c] %s%e%n"
+        pattern: "%d{yyyy-MM-dd HH:mm:ss} %p [%c] %s%e%n"
     periodic-rotating-file-handlers:
       FILE:
         file:
@@ -15,4 +15,4 @@ swarm:
       - FILE
 microservice:
   cex-url: "http://data.fixer.io/api/latest?access_key=%s&symbols=USD,AUD,CAD,PLN,MXN&format=1"
-  cex-api: "98389804f272658862bec77fd0af4f17"
+  cex-token: "98389804f272658862bec77fd0af4f17"

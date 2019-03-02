@@ -1,8 +1,8 @@
 package com.romeroej.microservice.rest.application.api;
 
 
-import com.romeroej.microservice.rest.data.model.CurrencyExchange;
-import com.romeroej.microservice.rest.domain.service.CurrencyExchangeService;
+import com.romeroej.microservice.rest.model.entities.CurrencyExchange;
+import com.romeroej.microservice.rest.domain.bussinesrules.CurrencyExchangeService;
 import io.swagger.annotations.*;
 import org.jboss.logging.Logger;
 import org.joda.time.DateTime;
@@ -83,7 +83,7 @@ public class CurrencyExchangeController {
         CurrencyExchange results = null;
         try {
             //results = currencyExchangeService.getCEXRates(currency);
-            return Response.ok(String.format("{\"convertedAmmount\" : \"%s %s\"}", currencyExchangeService.getConvertedAmmount(fromCurrency.toUpperCase(), toCurrency.toUpperCase(), ammount), toCurrency)
+            return Response.ok(String.format("{\"convertedAmmount\" : \"%s %s\"}", currencyExchangeService.getConvertedAmmount(fromCurrency.toUpperCase(), toCurrency.toUpperCase(), ammount), toCurrency.toUpperCase())
                     , MediaType.APPLICATION_JSON).build();
 
         } catch (Exception e) {
@@ -96,7 +96,7 @@ public class CurrencyExchangeController {
     @GET
     @Path("/status")
     @ApiOperation(value = "Service Alive Probe",
-            notes = "Returns a string with service ok & current time",
+            notes = "Returns a string with bussinesrules ok & current time",
             response = String.class
     )
     @Produces(MediaType.APPLICATION_JSON)
@@ -105,7 +105,7 @@ public class CurrencyExchangeController {
             @ApiResponse(code = 500, message = "Generic Error")})
     public Response getStatus() {
         LOG.info("CEX Status [GET] executed");
-        return Response.ok(String.format("{\"status\":\"service ok\",\"value\" : \"The time is %s\"}", new DateTime()), MediaType.APPLICATION_JSON).build();
+        return Response.ok(String.format("{\"status\":\"bussinesrules ok\",\"value\" : \"The time is %s\"}", new DateTime()), MediaType.APPLICATION_JSON).build();
 
 
     }

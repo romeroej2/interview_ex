@@ -7,11 +7,11 @@ import com.google.gson.internal.Excluder;
 import com.google.gson.internal.bind.JsonTreeReader;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.MalformedJsonException;
-import com.romeroej.microservice.rest.ApplicationActivator;
+import com.romeroej.microservice.rest.application.ApplicationActivator;
 import com.romeroej.microservice.rest.application.api.CurrencyExchangeController;
-import com.romeroej.microservice.rest.application.filter.CORSFilter;
-import com.romeroej.microservice.rest.data.model.CurrencyExchange;
-import com.romeroej.microservice.rest.domain.service.CurrencyExchangeService;
+import com.romeroej.microservice.rest.application.api.filter.CORSFilter;
+import com.romeroej.microservice.rest.model.entities.CurrencyExchange;
+import com.romeroej.microservice.rest.domain.bussinesrules.CurrencyExchangeService;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.io.output.StringBuilderWriter;
 import org.jboss.arquillian.container.test.api.Deployment;
@@ -66,6 +66,7 @@ public class RestApplicationIT {
 
 
                 .addPackage(MalformedJsonException.class.getPackage())
+                .addAsResource("project-defaults.yml", "project-defaults.yml")
                 .addAsResource("META-INF/persistence.xml", "META-INF/persistence.xml")
                 .addAsResource("META-INF/load.sql", "META-INF/load.sql")
                 .addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml");
@@ -85,7 +86,7 @@ public class RestApplicationIT {
     @Test
     public void testServiceStatus() {
         browser.navigate().to("http://localhost:8080/api/cex/v1/status");
-        assertThat(browser.getPageSource()).contains("service ok");
+        assertThat(browser.getPageSource()).contains("bussinesrules ok");
     }
 
 
