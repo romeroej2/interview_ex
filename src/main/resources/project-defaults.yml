@@ -16,3 +16,5 @@ swarm:
 microservice:
   weather-url: "http://api.openweathermap.org/data/2.5/weather?q=%s&appid=%s"
   weather-token: "95527e793f036541a7e0b17b4966525c"
+  key: "Foo12345Bar12345"
+  initVector: "RandomCrudVector"

@@ -1,12 +1,14 @@
 package com.romeroej.microservice.rest.domain.bussinesrules;
 
 
+import com.romeroej.microservice.rest.domain.auxiliary.Encryptor;
 import com.romeroej.microservice.rest.model.entities.Event;
 import com.romeroej.microservice.rest.model.entities.User;
 import org.jboss.logging.Logger;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.Stateless;
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
@@ -28,6 +30,8 @@ public class UserIdentityService {
     @PersistenceContext
     private EntityManager entityManager;
 
+    @Inject
+    Encryptor encryptor;
 
     @PostConstruct
     public void UserIdentityServicePostConstruct() {
@@ -42,6 +46,8 @@ public class UserIdentityService {
 
     public User createUser(User user) throws Exception {
 
+        //Encrypt PWD
+        user.setPassword(encryptor.encrypt(user.getPassword()));
 
         User userExists = entityManager.find(User.class, user.getUsername());
 
@@ -50,6 +56,7 @@ public class UserIdentityService {
         else {
             try {
                 entityManager.persist(user);
+
                 return user;
             } catch (Exception exCreation) {
                 throw new Exception(String.format("Problem Persisting New User %s %s", user.getUsername(), user.getEmail()));
@@ -65,7 +72,10 @@ public class UserIdentityService {
         try {
             User user = entityManager.find(User.class, username);
 
+            validpassword =encryptor.encrypt(validpassword);
+
             if (user != null && user.getPassword().equals(validpassword)) {
+
                 return user;
             } else {
                 throw new Exception("Invalid Credentials");

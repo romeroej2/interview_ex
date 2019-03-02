@@ -11,6 +11,7 @@ import com.romeroej.microservice.rest.application.ApplicationActivator;
 import com.romeroej.microservice.rest.application.api.ApiController;
 import com.romeroej.microservice.rest.application.api.filter.CORSFilter;
 
+import com.romeroej.microservice.rest.domain.auxiliary.Encryptor;
 import com.romeroej.microservice.rest.domain.bussinesrules.EventAuditService;
 import com.romeroej.microservice.rest.model.entities.User;
 import com.romeroej.microservice.rest.model.entities.Weather;
@@ -64,7 +65,9 @@ public class RestApplicationIT {
                 .addPackage(EventAuditService.class.getPackage())
                 .addPackage(Weather.class.getPackage())
                 .addClass(ApplicationActivator.class)
+                .addPackage(Encryptor.class.getPackage())
                 .addPackage(GsonBuilder.class.getPackage())
+                .addAsLibraries(resolver.resolve("commons-codec:commons-codec:1.9").withTransitivity().as(JavaArchive.class))
                 .addAsLibraries(resolver.resolve("joda-time:joda-time:2.7").withTransitivity().as(JavaArchive.class))
                 .addPackage(Excluder.class.getPackage())
                 .addPackage(JsonTreeReader.class.getPackage())
