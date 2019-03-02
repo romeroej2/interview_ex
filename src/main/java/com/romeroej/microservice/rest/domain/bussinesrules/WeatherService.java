@@ -3,7 +3,7 @@ package com.romeroej.microservice.rest.domain.bussinesrules;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.romeroej.microservice.rest.model.entities.CurrencyExchange;
+import com.romeroej.microservice.rest.model.entities.WeatherData;
 import org.apache.commons.io.IOUtils;
 import org.jboss.logging.Logger;
 import org.wildfly.swarm.spi.runtime.annotations.ConfigurationValue;
@@ -31,33 +31,76 @@ import java.util.stream.Stream;
  * @since 2019-02-28
  */
 @Stateless
-public class CurrencyExchangeService {
+public class WeatherService {
 
 
-    private static final Logger LOG = Logger.getLogger(CurrencyExchangeService.class);
+    private static final Logger LOG = Logger.getLogger(WeatherService.class);
 
 
     @PersistenceContext
     private EntityManager entityManager;
 
     @Inject
-    @ConfigurationValue("microservice.cex-url")
-    private String cex_url;
+    @ConfigurationValue("microservice.weather-url")
+    private String weather_url;
 
 
     @Inject
-    @ConfigurationValue("microservice.cex-token")
-    private String cex_token;
+    @ConfigurationValue("microservice.weather-token")
+    private String weather_token;
 
-    private String urlStr;
+
 
     @PostConstruct
-    public void CurrencyExchangeServicePostConstruct()
-    {
-        urlStr = String.format(cex_url,cex_token);
-        LOG.infof("Resolved CEX URL:%s",urlStr);
+    public void WeatherServicePostConstruct() {
+
     }
 
+
+
+    public String queryRestEndpoint4Weather(String city) throws Exception {
+
+
+        String urlStr = String.format(weather_url,city,weather_token);
+
+
+        try {
+
+            URL url = new URL(urlStr);
+
+            GsonBuilder builder = new GsonBuilder();
+            Gson gson = builder.create();
+
+
+            //Read REST info and Parse it to POJO to Persist.
+            String response =IOUtils.toString(url, "UTF-8"); //gson.fromJson(IOUtils.toString(url, "UTF-8"), WeatherData.class);
+
+
+
+            return response;
+
+
+        } catch (MalformedURLException e) {
+
+            LOG.errorf("Malformed Endpoint %s", urlStr);
+            throw new Exception("Problem Fetching new Weather Data");
+
+        } catch (IOException e) {
+
+            LOG.errorf("Error consuming Endpoint %s, exception: %s", urlStr, e.getMessage());
+            throw new Exception("Problem Fetching new Weather Data");
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            LOG.errorf("Exception: %s", urlStr, e.getMessage());
+            throw new Exception("Problem Fetching new Weather Data");
+        }
+
+
+    }
+
+}
+    /*
 
     public CurrencyExchange getCEXRates(String currency) throws Exception {
 
@@ -213,5 +256,5 @@ public class CurrencyExchangeService {
         }
 
     }
+*/
 
-}

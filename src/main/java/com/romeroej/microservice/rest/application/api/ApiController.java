@@ -3,8 +3,9 @@ package com.romeroej.microservice.rest.application.api;
 
 import com.romeroej.microservice.rest.domain.bussinesrules.EventAuditService;
 import com.romeroej.microservice.rest.domain.bussinesrules.UserIdentityService;
-import com.romeroej.microservice.rest.model.entities.CurrencyExchange;
-import com.romeroej.microservice.rest.domain.bussinesrules.CurrencyExchangeService;
+
+import com.romeroej.microservice.rest.domain.bussinesrules.WeatherService;
+import com.romeroej.microservice.rest.model.entities.User;
 import io.swagger.annotations.*;
 import org.jboss.logging.Logger;
 import org.joda.time.DateTime;
@@ -16,7 +17,7 @@ import javax.ws.rs.core.Response;
 
 
 @Path("/api/v1")
-@Api(value = "/cex", description = "Generic Api Controller", tags = "login,weather,log")
+@Api(value = "/", description = "Generic Api Controller", tags = "login,weather,log")
 @Produces(MediaType.APPLICATION_JSON)
 @SwaggerDefinition(
         info = @Info(
@@ -36,8 +37,9 @@ import javax.ws.rs.core.Response;
 public class ApiController {
 
     private static final Logger LOG = Logger.getLogger(ApiController.class);
-    @Inject
-    private CurrencyExchangeService currencyExchangeService;
+
+ @Inject
+ private WeatherService weatherService;
 
     @Inject
     private EventAuditService eventAuditService;
@@ -45,62 +47,36 @@ public class ApiController {
     @Inject
     private UserIdentityService userIdentityService;
 
-    /*
+
     @GET
-    @Path("/rates")
-    @ApiOperation(value = "Get the CEX exchange rate for EUR",
-            notes = "Returns the CEX rates as a string",
+    @Path("/weather/{city}")
+    @ApiOperation(value = "Gets the current weather for city",
+            notes = "Returns the current weather for city",
             response = String.class
     )
     @Produces(MediaType.APPLICATION_JSON)
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Gets current CEX rates"),
+            @ApiResponse(code = 200, message = "Gets current Weather"),
             @ApiResponse(code = 500, message = "Generic Error")})
-    public Response get() {
+    public Response getWeather(@PathParam("city") @ApiParam(value = "City", required = true) String city) {
 
-        LOG.info("CEX  rates [GET] executed");
-        CurrencyExchange results = null;
+        LOG.info("API  getWeather [GET] executed");
+
         try {
-            results = currencyExchangeService.getCEXRates("EUR");
-            return Response.ok(results, MediaType.APPLICATION_JSON).build();
+
+            eventAuditService.insertEvent("WeatherQuery",String.format("Consulted Weather for %s",city));
+            return Response.ok(weatherService.queryRestEndpoint4Weather(city), MediaType.APPLICATION_JSON).build();
 
         } catch (Exception e) {
-            return Response.status(500, "Problem Getting CEX Data: " + e.getMessage()).build();
+            return Response.status(500, "Problem Getting Weather Data: " + e.getMessage()).build();
         }
 
     }
 
 
-    @GET
-    @Path("convert/{fromCurrency}/{toCurrency}/{ammount}")
-    @ApiOperation(value = "Get the CEX exchange date for a specified currency",
-            notes = "Returns the CEX rates as a string",
-            response = String.class
-    )
-    @Produces(MediaType.APPLICATION_JSON)
-    @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Gets current CEX rates"),
-            @ApiResponse(code = 500, message = "Generic Error")})
-    public Response convertCurrency(@PathParam("fromCurrency") @ApiParam(value = "Currency To Convert", required = true) String fromCurrency,
-                                    @PathParam("toCurrency") @ApiParam(value = "Currency To Convert", required = true) String toCurrency,
-                                    @PathParam("ammount") @ApiParam(value = "Currency Ammount to Convert", required = true) double ammount) {
-
-        LOG.info("CEX Convert [GET] executed");
-        CurrencyExchange results = null;
-        try {
-            //results = currencyExchangeService.getCEXRates(currency);
-            return Response.ok(String.format("{\"convertedAmmount\" : \"%s %s\"}", currencyExchangeService.getConvertedAmmount(fromCurrency.toUpperCase(), toCurrency.toUpperCase(), ammount), toCurrency.toUpperCase())
-                    , MediaType.APPLICATION_JSON).build();
-
-        } catch (Exception e) {
-            return Response.status(500, "Problem Getting CEX Data: " + e.getMessage()).build();
-        }
-
-    }
-    */
 
     @POST
-    @Path("users/{username}")
+    @Path("users/register")
     @ApiOperation(value = "Registers a new User to the DB",
             notes = "Return created user",
             response = String.class
@@ -109,17 +85,15 @@ public class ApiController {
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Gets current CEX rates"),
             @ApiResponse(code = 500, message = "Generic Error")})
-    public Response createUser(@PathParam("username") @ApiParam(value = "Username", required = true) String username,
-                               @ApiParam(value = "Full Name", required = true) String fullName,
-                               @ApiParam(value = "E-Mail", required = true) String email,
-                               @ApiParam(value = "Password", required = true) String password) {
+    public Response createUser( @ApiParam(value = "Full Name", required = true) User user
+                               ) {
 
 
         LOG.info("API createUser [POST] executed");
 
         try {
 
-            return Response.ok(userIdentityService.createUser(username, fullName, email, password), MediaType.APPLICATION_JSON).build();
+            return Response.ok(userIdentityService.createUser(user), MediaType.APPLICATION_JSON).build();
 
         } catch (Exception e) {
             return Response.status(500, "Problem Getting CEX Data: " + e.getMessage()).build();
@@ -134,8 +108,8 @@ public class ApiController {
     )
     @Produces(MediaType.APPLICATION_JSON)
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Gets current CEX rates"),
-            @ApiResponse(code = 500, message = "Generic Error")})
+            @ApiResponse(code = 200, message = "Creates Login REquest"),
+            @ApiResponse(code = 401, message = "User doesnt exist or invalid password")})
     public Response validateUser(@PathParam("username") @ApiParam(value = "Username", required = true) String username,
                                @ApiParam(value = "Password", required = true) String password) {
 
@@ -147,7 +121,7 @@ public class ApiController {
             return Response.ok(userIdentityService.isValidLogin(username,password), MediaType.APPLICATION_JSON).build();
 
         } catch (Exception e) {
-            return Response.status(500, "Problem Getting CEX Data: " + e.getMessage()).build();
+            return Response.status(401, "Unauthorized: " + e.getMessage()).build();
         }
     }
 

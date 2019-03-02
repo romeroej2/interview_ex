@@ -10,8 +10,7 @@ import com.google.gson.stream.MalformedJsonException;
 import com.romeroej.microservice.rest.application.ApplicationActivator;
 import com.romeroej.microservice.rest.application.api.ApiController;
 import com.romeroej.microservice.rest.application.api.filter.CORSFilter;
-import com.romeroej.microservice.rest.model.entities.CurrencyExchange;
-import com.romeroej.microservice.rest.domain.bussinesrules.CurrencyExchangeService;
+
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.io.output.StringBuilderWriter;
 import org.jboss.arquillian.container.test.api.Deployment;
@@ -48,10 +47,10 @@ public class RestApplicationIT {
 
 
         return ShrinkWrap.create(WebArchive.class)
-                .addPackage(CurrencyExchange.class.getPackage())
+                //.addPackage(CurrencyExchange.class.getPackage())
                 .addPackage(ApiController.class.getPackage())
                 .addPackage(CORSFilter.class.getPackage())
-                .addPackage(CurrencyExchangeService.class.getPackage())
+              //  .addPackage(CurrencyExchangeService.class.getPackage())
                 .addClass(ApplicationActivator.class)
 
                 .addPackage(GsonBuilder.class.getPackage())
@@ -92,7 +91,7 @@ public class RestApplicationIT {
 
     @RunAsClient
     @Test
-    public void testGetCex() {
+    public void testGetWeather() {
         browser.navigate().to("http://localhost:8080/api/cex/v1/rates");
         assertThat(browser.getPageSource()).contains("\"eur\":1.0");
     }

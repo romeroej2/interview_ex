@@ -19,24 +19,17 @@ import java.io.Serializable;
 @Data
 @AllArgsConstructor
 @Entity
-public class CurrencyExchange implements Serializable {
+public class WeatherData implements Serializable {
 
 
     @Id
-    private String base;
-    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "rate_id")
-    private Rates rates;
+    private String name;
+    private Long timestampRest;
 
-
-    public CurrencyExchange() {
+    public WeatherData() {
     }
 
 
-    private Boolean success;
-    private Integer timestamp;
-    private Long timestampRest;
-    private String date;
 
 
 }

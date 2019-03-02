@@ -14,5 +14,5 @@ swarm:
       - CONSOLE
       - FILE
 microservice:
-  cex-url: "http://data.fixer.io/api/latest?access_key=%s&symbols=USD,AUD,CAD,PLN,MXN&format=1"
-  cex-token: "98389804f272658862bec77fd0af4f17"
+  weather-url: "http://api.openweathermap.org/data/2.5/weather?q=%s&appid=%s"
+  weather-token: "95527e793f036541a7e0b17b4966525c"
