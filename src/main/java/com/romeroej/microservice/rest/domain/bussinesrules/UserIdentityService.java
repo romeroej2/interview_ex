@@ -14,7 +14,6 @@ import java.util.List;
 
 
 /**
- *
  * @author RomeroEJ
  * @version 1.0
  * @since 2019-02-28
@@ -31,8 +30,7 @@ public class UserIdentityService {
 
 
     @PostConstruct
-    public void UserIdentityServicePostConstruct()
-    {
+    public void UserIdentityServicePostConstruct() {
 
     }
 
@@ -45,23 +43,18 @@ public class UserIdentityService {
     public User createUser(User user) throws Exception {
 
 
+        User userExists = entityManager.find(User.class, user.getUsername());
 
-        try {
-            User userExists = entityManager.find(User.class, user.getUsername());
-
-            throw  new Exception("User Already Exists");
-        }catch (Exception ex)
-        {
+        if (userExists != null)
+            throw new Exception("User Already Exists");
+        else {
             try {
                 entityManager.persist(user);
                 return user;
-            }catch (Exception exCreation)
-            {
-                throw  new Exception(String.format("Problem Persisting New User %s %s",user.getUsername(),user.getEmail()));
+            } catch (Exception exCreation) {
+                throw new Exception(String.format("Problem Persisting New User %s %s", user.getUsername(), user.getEmail()));
             }
         }
-
-
 
 
     }
@@ -72,17 +65,14 @@ public class UserIdentityService {
         try {
             User user = entityManager.find(User.class, username);
 
-            if(user != null && user.getPassword().equals(validpassword))
-            {
-                return  user;
-            }else
-            {
-                throw  new Exception("Invalid Credentials");
+            if (user != null && user.getPassword().equals(validpassword)) {
+                return user;
+            } else {
+                throw new Exception("Invalid Credentials");
             }
 
-        }catch (Exception ex)
-        {
-            throw  new Exception("User is not found on system");
+        } catch (Exception ex) {
+            throw new Exception("User is not found on system");
         }
 
     }
