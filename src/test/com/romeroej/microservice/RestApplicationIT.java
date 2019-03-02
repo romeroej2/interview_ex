@@ -157,13 +157,13 @@ public class RestApplicationIT {
 
 
         String urlStr =
-                "http://localhost:8080/api/v1/users/romeroej/login";
+                "http://localhost:8080/api/v1/users/string/login";
         String response =
                 ClientBuilder.newClient().target(urlStr).request()
-                        .post( Entity.json("\"string\""), String.class);
+                        .post( Entity.json("string"), String.class);
 
 
-        assertThat(response.contains("romeroej"));
+        assertThat(response.contains("string"));
 
 
     }
