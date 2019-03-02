@@ -22,9 +22,8 @@ import java.util.stream.Stream;
 
 
 /**
- * Service Solution that contains Application Logic to resolve the RATES date
- * and allow the information to be kept in sync. The class should cache the information
- * in the Database for 10min if the data is older it will remove it and refresh it.
+ * Service Solution that contains Application Logic to resolve the weather information
+ * for a specified city
  *
  * @author RomeroEJ
  * @version 1.0
@@ -58,7 +57,7 @@ public class WeatherService {
 
 
 
-    public String queryRestEndpoint4Weather(String city) throws Exception {
+    public WeatherData queryRestEndpoint4Weather(String city) throws Exception {
 
 
         String urlStr = String.format(weather_url,city,weather_token);
@@ -73,7 +72,7 @@ public class WeatherService {
 
 
             //Read REST info and Parse it to POJO to Persist.
-            String response =IOUtils.toString(url, "UTF-8"); //gson.fromJson(IOUtils.toString(url, "UTF-8"), WeatherData.class);
+            WeatherData response =gson.fromJson(IOUtils.toString(url, "UTF-8"), WeatherData.class);
 
 
 

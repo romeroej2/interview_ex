@@ -3,7 +3,8 @@ package com.romeroej.microservice.rest.model.entities;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.io.Serializable;
 
 
@@ -19,22 +20,18 @@ import java.io.Serializable;
 @Data
 @AllArgsConstructor
 @Entity
-public class WeatherData implements Serializable {
+public class Weather implements Serializable {
 
 
 
     @Id
     private String id;
-    private String name;
-    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "main_id")
-    private Main main;
-    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "weather_id")
-    private Weather weather;
+
+    private String main;
+    private String description;
 
 
-    public WeatherData() {
+    public Weather() {
     }
 
 

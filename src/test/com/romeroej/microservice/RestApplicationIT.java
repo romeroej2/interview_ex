@@ -11,6 +11,9 @@ import com.romeroej.microservice.rest.application.ApplicationActivator;
 import com.romeroej.microservice.rest.application.api.ApiController;
 import com.romeroej.microservice.rest.application.api.filter.CORSFilter;
 
+import com.romeroej.microservice.rest.domain.bussinesrules.EventAuditService;
+import com.romeroej.microservice.rest.model.entities.User;
+import com.romeroej.microservice.rest.model.entities.Weather;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.io.output.StringBuilderWriter;
 import org.jboss.arquillian.container.test.api.Deployment;
@@ -27,6 +30,12 @@ import org.jboss.shrinkwrap.resolver.api.maven.MavenResolverSystem;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
+
+import javax.ws.rs.client.Entity;
+import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+
 
 import static org.fest.assertions.Assertions.assertThat;
 
@@ -50,7 +59,8 @@ public class RestApplicationIT {
                 //.addPackage(CurrencyExchange.class.getPackage())
                 .addPackage(ApiController.class.getPackage())
                 .addPackage(CORSFilter.class.getPackage())
-              //  .addPackage(CurrencyExchangeService.class.getPackage())
+                .addPackage(EventAuditService.class.getPackage())
+                .addPackage(Weather.class.getPackage())
                 .addClass(ApplicationActivator.class)
 
                 .addPackage(GsonBuilder.class.getPackage())
@@ -84,7 +94,7 @@ public class RestApplicationIT {
     @RunAsClient
     @Test
     public void testServiceStatus() {
-        browser.navigate().to("http://localhost:8080/api/cex/v1/status");
+        browser.navigate().to("http://localhost:8080/api/cex/users/romeroej/login");
         assertThat(browser.getPageSource()).contains("bussinesrules ok");
     }
 
@@ -92,15 +102,34 @@ public class RestApplicationIT {
     @RunAsClient
     @Test
     public void testGetWeather() {
-        browser.navigate().to("http://localhost:8080/api/cex/v1/rates");
-        assertThat(browser.getPageSource()).contains("\"eur\":1.0");
+        browser.navigate().to("http://localhost:8080/api/v1/weather/bogota");
+        assertThat(browser.getPageSource()).contains("\"Bogota\"");
     }
 
     @RunAsClient
     @Test
-    public void testConvert() {
-        browser.navigate().to("http://localhost:8080/api/cex/v1/convert/EUR/EUR/1");
-        assertThat(browser.getPageSource()).contains("1.0 EUR");
+    public void testAudit() {
+        browser.navigate().to("http://localhost:8080/api/v1/eventInformation");
+        assertThat(browser.getPageSource()).contains("Consulted Weather");
+    }
+
+    @RunAsClient
+    @Test
+    public void testRegistration( final WebTarget webTarget ) {
+
+
+        final Response response = webTarget
+                .path("/sessions")
+                .request(MediaType.APPLICATION_JSON)
+                .post(Entity.json(new User(
+                        "romeroej",
+                        "mypassword","string","string")));
+
+
+
+        assertThat(true);
+
+
     }
 
 

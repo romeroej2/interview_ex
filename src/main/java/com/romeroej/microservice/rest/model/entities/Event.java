@@ -5,6 +5,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 
 
 /**
@@ -19,26 +20,25 @@ import java.io.Serializable;
 @Data
 @AllArgsConstructor
 @Entity
-public class WeatherData implements Serializable {
-
+public class Event implements Serializable {
 
 
     @Id
-    private String id;
-    private String name;
-    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "main_id")
-    private Main main;
-    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "weather_id")
-    private Weather weather;
+    @GeneratedValue
+    private Long id;
 
-
-    public WeatherData() {
+    public Event() {
     }
 
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date timestamp;
+    private String eventType;
+    private String eventDescription;
 
-
-
+    public Event(String eventType, String eventDescription) {
+        this.eventType = eventType;
+        this.eventDescription = eventDescription;
+        this.timestamp = new Date();
+    }
 }
 

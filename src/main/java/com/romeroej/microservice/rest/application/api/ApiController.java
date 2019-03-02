@@ -108,10 +108,12 @@ public class ApiController {
     )
     @Produces(MediaType.APPLICATION_JSON)
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Creates Login REquest"),
+            @ApiResponse(code = 200, message = "Creates Login Request"),
             @ApiResponse(code = 401, message = "User doesnt exist or invalid password")})
     public Response validateUser(@PathParam("username") @ApiParam(value = "Username", required = true) String username,
-                               @ApiParam(value = "Password", required = true) String password) {
+                               @ApiParam(value = "Password", required = true, example = "string") String password) {
+
+
 
 
         LOG.info("API validateUser [POST] executed");
@@ -157,7 +159,7 @@ public class ApiController {
     public Response getStatus() {
         LOG.info("API Status [GET] executed");
         try {
-            eventAuditService.insertEvent("Audit", "Service Status Called");
+            //eventAuditService.insertEvent("Audit", "Service Status Called");
             return Response.ok(String.format("{\"status\":\"bussinesrules ok\",\"value\" : \"The time is %s\"}", new DateTime()), MediaType.APPLICATION_JSON).build();
         } catch (Exception e) {
             return Response.status(500, e.getMessage()).build();
